@@ -57,10 +57,10 @@
                             {{$education->edu_course_name}}
                         </td>
                         <td class="px-6 py-4 text-right">
-                            <form action="{{route('delete-apply-form-pg2')}}" method="POST">
+                            <form action="{{route('delete-apply-form-pg3')}}" method="POST">
                                 @csrf
                                 <input type="hidden" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required /> 
-                                <input type="hidden" id="id" name="id" value="{{$relative->id}}" class="" required />
+                                <input type="hidden" id="id" name="id" value="{{$education->id}}" class="" required />
                                 <button  class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Padam</a>
                             </form>
                         </td>
@@ -73,11 +73,11 @@
         </div>
 
         <div class="border rounded rounded-xl p-4 mb-1">
-            <form action="{{route('store-apply-form-pg2')}}" method="POST">
+            <form action="{{route('store-apply-form-pg3')}}" method="POST">
                 @csrf
 
-                <input type="text" id="job_id" name="job_id" value="199401040896" class="" required />
-                <input type="text" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required />
+                <input type="hidden" id="job_id" name="job_id" value="199401040896" class="" required />
+                <input type="hidden" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required />
 
                 <p class=" font-semibold ">Tambah Maklumat Pendidikan ( Sila masukkan maklumat, bermula dari tahap Sekolah Menengah )</p>
                 <div class="mb-5">
@@ -87,12 +87,12 @@
 
                 <div class="mb-5">
                     <label for="start_year" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tahun Mula</label>
-                    <input type="text" id="start_year" name="start_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <input type="text" id="start_year" name="start_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" pattern="\d*" maxlength="4" required />
                 </div>
 
                 <div class="mb-5">
                     <label for="end_year" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tahun Akhir</label>
-                    <input type="text" id="end_year" name="end_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <input type="text" id="end_year" name="end_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" pattern="\d*" maxlength="4" required />
                 </div>
 
                 <div class="mb-5">
@@ -178,10 +178,12 @@
             </form>
         </div>
             
-        {{-- <form class="max-w-screen-lg m-2 mx-auto" action="{{route('apply-form-pg3')}}" method="POST">
+
+        <a href="{{url('/apply-form/' . $candidate_id . '/4') }}"><button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seterusnya</button>
+        {{-- <form class="max-w-screen-lg m-2 mx-auto" action="{{route('apply-form-pg4')}}" method="POST">
             @csrf
             <input type="hidden" id="job_id" name="job_id" value="199401040896" class="" required />
-            <input type="hidden" id="candidate_id" name="candidate_id" value="829dd421-3a02-4f15-b65d-889a15e5c730" class="" required />
+            <input type="text" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required />
         <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seterusnya</button>
         </form> --}}
 

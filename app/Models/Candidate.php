@@ -34,6 +34,11 @@ class Candidate extends Model
         'phone_tel_num',
         'home_tel_num',
         'email',
+        'emgcy_contact_name',
+        'emgcy_contact_relationship',
+        'emgcy_contact_phone_num',
+        'form_submitted_date',
+
     ];
 
 }

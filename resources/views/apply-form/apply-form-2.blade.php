@@ -115,13 +115,15 @@
 
             </form>
         </div>
-            
-        <form class="max-w-screen-lg m-2 mx-auto" action="{{route('apply-form-pg3')}}" method="POST">
-            @csrf
-            <input type="hidden" id="job_id" name="job_id" value="199401040896" class="" required />
-            <input type="hidden" id="candidate_id" name="candidate_id" value="829dd421-3a02-4f15-b65d-889a15e5c730" class="" required />
-        <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seterusnya</button>
-        </form>
+        
+        <a href="{{url('/apply-form/' . $candidate_id . '/3') }}"><button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seterusnya</button>
+        </a>
+        {{-- <form class="max-w-screen-lg m-2 mx-auto" action="{{route('apply-form-pg3')}}" method="POST"> --}}
+            {{-- @csrf --}}
+            {{-- <input type="hidden" id="job_id" name="job_id" value="199401040896" class="" required /> --}}
+            {{-- <input type="text" id="candidate_id" name="candidate_id" value="" class="" required /> --}}
+        {{-- <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seterusnya</button> --}}
+        {{-- </form> --}}
 
 
     </div>
