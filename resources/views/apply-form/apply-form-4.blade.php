@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 
 @section('content')
 
@@ -15,8 +15,8 @@
         <p class="font-bold uppercase text-sm">Bahagian 4: Maklumat Pekerjaan</p>
 
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-3">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-white uppercase bg-gray-500 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                <thead class="text-xs text-white uppercase bg-gray-500">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Nama Majikan
@@ -43,8 +43,8 @@
                 </thead>
                 <tbody>
                     @foreach($career_histories as $career_history)
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {{$career_history->employer_name}}
                         </th>
                         <td class="px-6 py-4">
@@ -67,7 +67,7 @@
                                 @csrf
                                 <input type="hidden" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required /> 
                                 <input type="hidden" id="id" name="id" value="{{$career_history->id}}" class="" required />
-                                <button  class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Padam</a>
+                                <button  class="font-medium text-blue-600 hover:underline">Padam</a>
                             </form>
                         </td>
                     </tr>
@@ -87,47 +87,47 @@
 
                 <p class=" font-semibold ">Tambah Maklumat Pekerjaan </p>
                 <div class="mb-5">
-                    <label for="employer_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Majikan</label>
-                    <input type="text" id="employer_name" name="employer_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label for="employer_name" class="block mb-2 text-sm font-medium text-gray-900">Nama Majikan</label>
+                    <input type="text" id="employer_name" name="employer_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
                 <div class="mb-5">
-                    <label for="designation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jawatan</label>
-                    <input type="text" id="designation" name="designation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label for="designation" class="block mb-2 text-sm font-medium text-gray-900">Jawatan</label>
+                    <input type="text" id="designation" name="designation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
                 <div class="mb-5">
-                    <label for="start_year" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tahun Mula Bekerja</label>
-                    <input type="text" id="start_year" name="start_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" pattern="\d*" maxlength="4" required />
+                    <label for="start_year" class="block mb-2 text-sm font-medium text-gray-900">Tahun Mula Bekerja</label>
+                    <input type="text" id="start_year" name="start_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="\d*" maxlength="4" required />
                 </div>
 
                 <div class="mb-5">
-                    <label for="end_year" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tahun Habis Bekerja</label>
-                    <input type="text" id="end_year" name="end_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" pattern="\d*" maxlength="4" required />
+                    <label for="end_year" class="block mb-2 text-sm font-medium text-gray-900">Tahun Habis Bekerja</label>
+                    <input type="text" id="end_year" name="end_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="\d*" maxlength="4" required />
                 </div>
 
                 <div class="mb-5">
-                    <label for="final_salary" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gaji Akhir (RM)</label>
-                    <input type="text" id="final_salary" name="final_salary" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label for="final_salary" class="block mb-2 text-sm font-medium text-gray-900">Gaji Akhir (RM)</label>
+                    <input type="text" id="final_salary" name="final_salary" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
                 <div class="mb-5">
-                    <label for="resign_reason" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sebab Berhenti</label>
-                    <input type="text" id="resign_reason" name="resign_reason" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label for="resign_reason" class="block mb-2 text-sm font-medium text-gray-900">Sebab Berhenti</label>
+                    <input type="text" id="resign_reason" name="resign_reason" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
-                <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Simpan Maklumat Pekerjaan</button>
+                <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Simpan Maklumat Pekerjaan</button>
 
             </form>
         </div>
             
-        <a href="{{url('/apply-form/' . $candidate_id . '/5') }}"><button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seterusnya</button>
+        <a href="{{url('/apply-form/' . $candidate_id . '/5') }}"><button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Seterusnya</button>
         
         {{-- <form class="max-w-screen-lg m-2 mx-auto" action="{{route('apply-form-pg3')}}" method="POST">
             @csrf
             <input type="hidden" id="job_id" name="job_id" value="199401040896" class="" required />
             <input type="hidden" id="candidate_id" name="candidate_id" value="829dd421-3a02-4f15-b65d-889a15e5c730" class="" required />
-        <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seterusnya</button>
+        <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Seterusnya</button>
         </form> --}}
 
 

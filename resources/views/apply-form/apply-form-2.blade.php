@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 
 @section('content')
 
@@ -15,8 +15,8 @@
         <p class="font-bold uppercase text-sm">Bahagian 2: Maklumat Keluarga</p>
 
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-3">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-white uppercase bg-gray-500 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                <thead class="text-xs text-white uppercase bg-gray-500">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Nama
@@ -40,8 +40,8 @@
                 </thead>
                 <tbody>
                     @foreach($relatives as $relative)
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {{$relative->name}}
                         </th>
                         <td class="px-6 py-4">
@@ -61,14 +61,14 @@
                                 @csrf
                                 <input type="hidden" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required /> 
                                 <input type="hidden" id="id" name="id" value="{{$relative->id}}" class="" required />
-                                <button  class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Padam</a>
+                                <button  class="font-medium text-blue-600 hover:underline">Padam</a>
                             </form>
                         </td>
                     </tr>
                     @endforeach
                     <?php if(empty($relative)) { ?>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td scope="row" rowspan="6" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td scope="row" rowspan="6" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 Tiada data. Sila tambah pada ruangan di bawah.
                             </td>
                         </tr>
@@ -87,42 +87,42 @@
 
                 <p class=" font-semibold ">Tambah Maklumat Keluarga ( Sila masukkan 5 ahli keluarga iaitu Ibu, bapa dan 3 saudara terdekat )</p>
                 <div class="mb-5">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                    <input type="text" id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
+                    <input type="text" id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
                 <div class="mb-5">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hubungan</label>
-                    <input type="text" id="relationship" name="relationship" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Hubungan</label>
+                    <input type="text" id="relationship" name="relationship" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
                 <div class="mb-5">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Umur</label>
-                    <input type="text" id="age" name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Umur</label>
+                    <input type="text" id="age" name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
                 <div class="mb-5">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pekerjaan</label>
-                    <input type="text" id="occupation" name="occupation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Pekerjaan</label>
+                    <input type="text" id="occupation" name="occupation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
                 <div class="mb-5">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Majikan / Sekolah</label>
-                    <input type="text" id="company_name" name="company_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Nama Majikan / Sekolah</label>
+                    <input type="text" id="company_name" name="company_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
-                <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Simpan Maklumat Keluarga</button>
+                <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Simpan Maklumat Keluarga</button>
 
             </form>
         </div>
         
-        <a href="{{url('/apply-form/' . $candidate_id . '/3') }}"><button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seterusnya</button>
+        <a href="{{url('/apply-form/' . $candidate_id . '/3') }}"><button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Seterusnya</button>
         </a>
         {{-- <form class="max-w-screen-lg m-2 mx-auto" action="{{route('apply-form-pg3')}}" method="POST"> --}}
             {{-- @csrf --}}
             {{-- <input type="hidden" id="job_id" name="job_id" value="199401040896" class="" required /> --}}
             {{-- <input type="text" id="candidate_id" name="candidate_id" value="" class="" required /> --}}
-        {{-- <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seterusnya</button> --}}
+        {{-- <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Seterusnya</button> --}}
         {{-- </form> --}}
 
 

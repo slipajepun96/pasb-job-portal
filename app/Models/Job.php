@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
+use App\Models\Candidate;
 
 class Job extends Model
 {
@@ -20,12 +23,16 @@ class Job extends Model
     }
 
     protected $fillable = [
-        'job_id',
-        'candidate_id',
-        'edu_institute_name',
-        'start_year',
-        'end_year',
-        'edu_level',
-        'edu_course_name',
+        'job_ads_title',
+        'job_location',
+        'job_description',
+        'start_date',
+        'end_date',
+        'ads_link',
     ];
+
+    public function candidate()
+    {
+        return $this->hasMany(Candidate::class);
+    }
 }

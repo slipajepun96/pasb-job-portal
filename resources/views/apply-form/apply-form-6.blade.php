@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 
 @section('content')
 
@@ -25,11 +25,11 @@
 
                 {{-- <p class=" font-semibold ">Tambah Maklumat Tambahan Pekerjaan Terkini </p> --}}
                 <div class="mb-5">
-                    <label for="bm_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Penguasaan Bahasa Melayu</label>
+                    <label for="bm_status" class="block mb-2 text-sm font-medium text-gray-900">Penguasaan Bahasa Melayu</label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="baik" value="Baik" name="bm_status" class="hidden peer" required />
-                            <label for="baik" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="baik" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Baik</div>
                                 </div>
@@ -37,7 +37,7 @@
                         </li>
                         <li>
                             <input type="radio" id="sederhana" value="Sederhana" name="bm_status" class="hidden peer" required />
-                            <label for="sederhana" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="sederhana" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Sederhana</div>
                                 </div>
@@ -45,7 +45,7 @@
                         </li>
                         <li>
                             <input type="radio" id="kurang_baik" value="Kurang Baik" name="bm_status" class="hidden peer" required />
-                            <label for="kurang_baik" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">    
+                            <label for="kurang_baik" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">    
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Kurang Baik</div>
                                 </div>
@@ -55,11 +55,11 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="bi_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Penguasaan Bahasa Inggeris</label>
+                    <label for="bi_status" class="block mb-2 text-sm font-medium text-gray-900">Penguasaan Bahasa Inggeris</label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="baik2" value="Baik" name="bi_status" class="hidden peer" required />
-                            <label for="baik2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="baik2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Baik</div>
                                 </div>
@@ -67,7 +67,7 @@
                         </li>
                         <li>
                             <input type="radio" id="sederhana2" value="Sederhana" name="bi_status" class="hidden peer" required />
-                            <label for="sederhana2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="sederhana2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Sederhana</div>
                                 </div>
@@ -75,7 +75,7 @@
                         </li>
                         <li>
                             <input type="radio" id="kurang_baik2" value="Kurang Baik" name="bi_status" class="hidden peer" required />
-                            <label for="kurang_baik2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">    
+                            <label for="kurang_baik2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">    
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Kurang Baik</div>
                                 </div>
@@ -85,13 +85,13 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="bi_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Penguasaan Bahasa Lain (Jika Ada)</label>
+                    <label for="bi_status" class="block mb-2 text-sm font-medium text-gray-900">Penguasaan Bahasa Lain (Jika Ada)</label>
 
-                    <input type="text" id="other_language_name" name="other_language_name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-1" placeholder="Nama Bahasa" />
+                    <input type="text" id="other_language_name" name="other_language_name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-1" placeholder="Nama Bahasa" />
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="baik3" value="Baik" name="other_language_status" class="hidden peer"  />
-                            <label for="baik3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="baik3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Baik</div>
                                 </div>
@@ -99,7 +99,7 @@
                         </li>
                         <li>
                             <input type="radio" id="sederhana3" value="Sederhana" name="other_language_status" class="hidden peer"  />
-                            <label for="sederhana3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="sederhana3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Sederhana</div>
                                 </div>
@@ -107,7 +107,7 @@
                         </li>
                         <li>
                             <input type="radio" id="kurang_baik3" value="Kurang Baik" name="other_language_status" class="hidden peer"  />
-                            <label for="kurang_baik3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">    
+                            <label for="kurang_baik3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">    
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Kurang Baik</div>
                                 </div>
@@ -126,11 +126,11 @@
 
                 {{-- <p class=" font-semibold ">Tambah Maklumat Tambahan Pekerjaan Terkini </p> --}}
                 <div class="mb-5">
-                    <label for="drug_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 1) Adakah anda pernah didakwa dan disabitkan dalam mana-mana mahkamah undang-undang untuk kesalahan jenayah atau Kesalahan dibawah Akta Dadah Berbahaya 1952? (jika ya, nyatakan butiran)</label>
+                    <label for="drug_status" class="block mb-2 text-sm font-medium text-gray-900"> 1) Adakah anda pernah didakwa dan disabitkan dalam mana-mana mahkamah undang-undang untuk kesalahan jenayah atau Kesalahan dibawah Akta Dadah Berbahaya 1952? (jika ya, nyatakan butiran)</label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya1" value="Ya" name="drug_status" class="hidden peer" required />
-                            <label for="ya1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="ya1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Ya</div>
                                 </div>
@@ -138,22 +138,22 @@
                         </li>
                         <li>
                             <input type="radio" id="tidak1" value="Tidak" name="drug_status" class="hidden peer" required />
-                            <label for="tidak1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="tidak1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Tidak</div>
                                 </div>
                             </label>
                         </li>
                     </ul>
-                    <input type="text" id="drug_description" name="drug_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2" placeholder="Butiran, jika Ya" />
+                    <input type="text" id="drug_description" name="drug_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2" placeholder="Butiran, jika Ya" />
                 </div>
 
                 <div class="mb-5">
-                    <label for="bankcrupt_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 2) Adakan anda diisytiharkan bankrap?</label>
+                    <label for="bankcrupt_status" class="block mb-2 text-sm font-medium text-gray-900"> 2) Adakan anda diisytiharkan bankrap?</label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya2" value="Ya" name="bankcrupt_status" class="hidden peer" required />
-                            <label for="ya2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="ya2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Ya</div>
                                 </div>
@@ -161,22 +161,22 @@
                         </li>
                         <li>
                             <input type="radio" id="tidak2" value="Tidak" name="bankcrupt_status" class="hidden peer" required />
-                            <label for="tidak2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="tidak2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Tidak</div>
                                 </div>
                             </label>
                         </li>
                     </ul>
-                    <input type="text" id="bankcrupt_description" name="bankcrupt_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2" placeholder="Butiran, jika Ya" />
+                    <input type="text" id="bankcrupt_description" name="bankcrupt_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2" placeholder="Butiran, jika Ya" />
                 </div>
 
                 <div class="mb-5">
-                    <label for="business_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 3) Adakan anda terlibat dalam sebarang usaha perniagaan, termasuk perniagaan keluarga? (jika ya, nyatakan butiran)</label>
+                    <label for="business_status" class="block mb-2 text-sm font-medium text-gray-900"> 3) Adakan anda terlibat dalam sebarang usaha perniagaan, termasuk perniagaan keluarga? (jika ya, nyatakan butiran)</label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya3" value="Ya" name="business_status" class="hidden peer" required />
-                            <label for="ya3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="ya3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Ya</div>
                                 </div>
@@ -184,22 +184,22 @@
                         </li>
                         <li>
                             <input type="radio" id="tidak3" value="Tidak" name="business_status" class="hidden peer" required />
-                            <label for="tidak3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="tidak3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Tidak</div>
                                 </div>
                             </label>
                         </li>
                     </ul>
-                    <input type="text" id="business_description" name="business_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2" placeholder="Butiran, jika Ya" />
+                    <input type="text" id="business_description" name="business_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2" placeholder="Butiran, jika Ya" />
                 </div>
 
                 <div class="mb-5">
-                    <label for="license_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 4) Adakan anda mempunyai lesen memandu? (jika ya, nyatakan kelas apa)</label>
+                    <label for="license_status" class="block mb-2 text-sm font-medium text-gray-900"> 4) Adakan anda mempunyai lesen memandu? (jika ya, nyatakan kelas apa)</label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya4" value="Ya" name="license_status" class="hidden peer" required />
-                            <label for="ya4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="ya4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Ya</div>
                                 </div>
@@ -207,22 +207,22 @@
                         </li>
                         <li>
                             <input type="radio" id="tidak4" value="Tidak" name="license_status" class="hidden peer" required />
-                            <label for="tidak4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="tidak4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Tidak</div>
                                 </div>
                             </label>
                         </li>
                     </ul>
-                    <input type="text" id="license_description" name="license_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2" placeholder="Butiran, jika Ya" />
+                    <input type="text" id="license_description" name="license_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2" placeholder="Butiran, jika Ya" />
                 </div>
 
                 <div class="mb-5">
-                    <label for="smoking_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 5) Adakan anda seorang perokok?</label>
+                    <label for="smoking_status" class="block mb-2 text-sm font-medium text-gray-900"> 5) Adakan anda seorang perokok?</label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya5" value="Ya" name="smoking_status" class="hidden peer" required />
-                            <label for="ya5" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="ya5" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Ya</div>
                                 </div>
@@ -230,7 +230,7 @@
                         </li>
                         <li>
                             <input type="radio" id="tidak5" value="Tidak" name="smoking_status" class="hidden peer" required />
-                            <label for="tidak5" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="tidak5" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Tidak</div>
                                 </div>
@@ -240,11 +240,11 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="drinking_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 6) Adakan anda seorang peminum arak?</label>
+                    <label for="drinking_status" class="block mb-2 text-sm font-medium text-gray-900"> 6) Adakan anda seorang peminum arak?</label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya6" value="Ya" name="drinking_status" class="hidden peer" required />
-                            <label for="ya6" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="ya6" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Ya</div>
                                 </div>
@@ -252,7 +252,7 @@
                         </li>
                         <li>
                             <input type="radio" id="tidak6" value="Tidak" name="drinking_status" class="hidden peer" required />
-                            <label for="tidak6" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="tidak6" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Tidak</div>
                                 </div>
@@ -263,7 +263,7 @@
 
                
 
-                {{-- <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Simpan Maklumat & Seterusnya</button> --}}
+                {{-- <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Simpan Maklumat & Seterusnya</button> --}}
 
             </div> 
 
@@ -275,11 +275,11 @@
 
                 {{-- <p class=" font-semibold ">Tambah Maklumat Tambahan Pekerjaan Terkini </p> --}}
                 <div class="mb-5">
-                    <label for="illness_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 1) Pernahkah anda atau sedang mengalami sebarang penyakit? (jika ya, nyatakan butiran) </label>
+                    <label for="illness_status" class="block mb-2 text-sm font-medium text-gray-900"> 1) Pernahkah anda atau sedang mengalami sebarang penyakit? (jika ya, nyatakan butiran) </label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya7" value="Ya" name="illness_status" class="hidden peer" required />
-                            <label for="ya7" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="ya7" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Ya</div>
                                 </div>
@@ -287,22 +287,22 @@
                         </li>
                         <li>
                             <input type="radio" id="tidak7" value="Tidak" name="illness_status" class="hidden peer" required />
-                            <label for="tidak7" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="tidak7" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Tidak</div>
                                 </div>
                             </label>
                         </li>
                     </ul>
-                    <input type="text" id="illness_description" name="illness_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2" placeholder="Butiran, jika Ya" />
+                    <input type="text" id="illness_description" name="illness_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2" placeholder="Butiran, jika Ya" />
                 </div>
 
                 <div class="mb-5">
-                    <label for="physical_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 2) Adakah anda mengalami kecacatan fizikal? (jika ya, nyatakan butiran)</label>
+                    <label for="physical_status" class="block mb-2 text-sm font-medium text-gray-900"> 2) Adakah anda mengalami kecacatan fizikal? (jika ya, nyatakan butiran)</label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya8" value="Ya" name="physical_status" class="hidden peer" required />
-                            <label for="ya8" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="ya8" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Ya</div>
                                 </div>
@@ -310,22 +310,22 @@
                         </li>
                         <li>
                             <input type="radio" id="tidak8" value="Tidak" name="physical_status" class="hidden peer" required />
-                            <label for="tidak8" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="tidak8" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Tidak</div>
                                 </div>
                             </label>
                         </li>
                     </ul>
-                    <input type="text" id="physical_description" name="physical_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2" placeholder="Butiran, jika Ya" />
+                    <input type="text" id="physical_description" name="physical_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2" placeholder="Butiran, jika Ya" />
                 </div>
 
                 <div class="mb-5">
-                    <label for="pregnancy_status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> 3) Adakah anda sedang hamil atau merancang memiliki bayi tidak lama lagi? (untuk calon perempuan sahaja)</label>
+                    <label for="pregnancy_status" class="block mb-2 text-sm font-medium text-gray-900"> 3) Adakah anda sedang hamil atau merancang memiliki bayi tidak lama lagi? (untuk calon perempuan sahaja)</label>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya9" value="Ya" name="pregnancy_status" class="hidden peer" />
-                            <label for="ya9" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="ya9" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Ya</div>
                                 </div>
@@ -333,19 +333,19 @@
                         </li>
                         <li>
                             <input type="radio" id="tidak9" value="Tidak" name="pregnancy_status" class="hidden peer" />
-                            <label for="tidak9" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                            <label for="tidak9" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">Tidak</div>
                                 </div>
                             </label>
                         </li>
                     </ul>
-                    <input type="text" id="pregnancy_description" name="pregnancy_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2" placeholder="Butiran, jika Ya" />
+                    <input type="text" id="pregnancy_description" name="pregnancy_description" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2" placeholder="Butiran, jika Ya" />
                 </div>
 
             </div> 
 
-            <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Simpan Maklumat & Seterusnya</button>
+            <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Simpan Maklumat & Seterusnya</button>
 
 
 
@@ -356,7 +356,7 @@
             </form>
 
             
-        {{-- <a href="{{url('/apply-form/' . $candidate_id . '/6') }}"><button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seterusnya</button> --}}
+        {{-- <a href="{{url('/apply-form/' . $candidate_id . '/6') }}"><button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Seterusnya</button> --}}
 
 
     </div>

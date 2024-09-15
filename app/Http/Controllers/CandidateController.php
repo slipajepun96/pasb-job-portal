@@ -10,13 +10,27 @@ use App\Models\CareerHistory;
 use App\Models\CurrentCareerHistory;
 use App\Models\OtherInformation;
 use App\Models\Hobby;
+use App\Models\Job;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class CandidateController extends Controller
 {
+
+
+    public function viewApplyFormPg1()
+    {
+        $today=date("m/d/Y");
+        $jobs=Job::where('end_date','>=',$today)->where('start_date','<=',$today)->get();
+        // $jobs=Job::all();
+        // dd($jobs);
+
+        return view('apply-form.apply-form',['jobs' => $jobs]);
+    }
+
     public function storeApplyFormPg1(Request $request)
     {
         $validator=Validator::make($request->all(),[
@@ -441,6 +455,8 @@ class CandidateController extends Controller
         $other_information = OtherInformation::where('candidate_id','=',$request->candidate_id)->first();
         // dd($other_information);
 
+        
+
 
         $validator=Validator::make($request->all(),[
             'job_id' => 'required',
@@ -456,6 +472,7 @@ class CandidateController extends Controller
             'ref2_phone_num' => 'required',
             'ref2_company' => '',
             'ref2_designation' => 'required',
+            'attachment' => '',
         ]);
 
         if ($validator->fails()) {
@@ -468,12 +485,18 @@ class CandidateController extends Controller
 
         $validated=$validator->validated();
 
+        $file = $request->file('attachment')->store('attachment/'.$request->candidate_id,'public');
+        // $path = $file->store('uploads', 'public');
+        // dd($file);
 
+  
 
         // $other_information = new OtherInformation();
         $candidate->emgcy_contact_name = $request->emgcy_contact_name;
         $candidate->emgcy_contact_relationship = $request->emgcy_contact_relationship;
         $candidate->emgcy_contact_phone_num = $request->emgcy_contact_phone_num;
+        $candidate->attachment_location = $file;
+        $candidate->form_submitted_date = date("m/d/Y");
         $candidate->save();
 
         $other_information->ref1_name = $request->ref1_name;

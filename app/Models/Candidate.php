@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use App\Models\Job;
 
 class Candidate extends Model
 {
@@ -37,8 +38,14 @@ class Candidate extends Model
         'emgcy_contact_name',
         'emgcy_contact_relationship',
         'emgcy_contact_phone_num',
+        'attachment_location',
         'form_submitted_date',
 
     ];
+
+    public function job()
+    {
+        return $this->belongsTo(Job::class);
+    }
 
 }
