@@ -40,6 +40,8 @@ class Candidate extends Model
         'emgcy_contact_phone_num',
         'attachment_location',
         'form_submitted_date',
+        'expected_salary',
+        'expected_report_for_duty_date',
 
     ];
 

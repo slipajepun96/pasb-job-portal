@@ -34,29 +34,29 @@
                 </thead>
                 <tbody>
                     @foreach($jobs as $job)
-                    <tr class="bg-white border-b hover:bg-gray-50">
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            {{$job->job_ads_title}}
-                        </th>
-                        <td class="px-6 py-4">
-                            {{$job->start_date}}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{$job->end_date}}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{$job->ads_link}}
-                        </td>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                {{$job->job_ads_title}}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{$job->start_date}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$job->end_date}}
+                                {{$job->id}}
+                            </td>
+                            <td class="px-6 py-4">
+                                @if($job->ads_link)<a href="{{$job->ads_link}}" class="underline text-blue-400" target="_blank">Pautan Iklan</a>@else No Link @endif
+                            </td>
 
-                        <td class="px-6 py-4 text-right">
-                            {{-- <form action="{{route('delete-apply-form-pg3')}}" method="POST"> --}}
-                                @csrf
-                                {{-- <input type="hidden" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required />  --}}
-                                {{-- <input type="hidden" id="id" name="id" value="{{$education->id}}" class="" required /> --}}
-                                <button  class="font-medium text-blue-600 hover:underline">Padam</a>
-                            {{-- </form> --}}
-                        </td>
-                    </tr>
+                            <td class="px-6 py-4 text-right">
+                                <form action="{{route('delete-job')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$job->id}}" class="" required />
+                                    <button  class="font-medium text-blue-600 hover:underline">Padam</a>
+                                </form>
+                            </td>
+                        </tr>
                     @endforeach
 
 

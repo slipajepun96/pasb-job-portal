@@ -62,5 +62,12 @@ class JobController extends Controller
         // dd($candidate->id);
         return redirect()->route('index-jobs');
     }
+
+    public function deleteJob(Request $request)
+    {
+        DB::table('jobs')->where('id',$request->id)->delete();
+        Session::flash('status','Successfully deleted');
+        return redirect()->route('index-jobs');
+    }
 }
 

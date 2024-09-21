@@ -80,23 +80,23 @@
                 <input type="hidden" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required />
 
                 <p class=" font-semibold ">Tambah Maklumat Pendidikan ( Sila masukkan maklumat, bermula dari tahap Sekolah Menengah )</p>
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="edu_institute_name" class="block mb-2 text-sm font-medium text-gray-900">Nama Sekolah / IPT</label>
                     <input type="text" id="edu_institute_name" name="edu_institute_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="start_year" class="block mb-2 text-sm font-medium text-gray-900">Tahun Mula</label>
                     <input type="text" id="start_year" name="start_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="\d*" maxlength="4" required />
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="end_year" class="block mb-2 text-sm font-medium text-gray-900">Tahun Akhir</label>
                     <input type="text" id="end_year" name="end_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="\d*" maxlength="4" required />
                 </div>
 
                 <div class="mb-5">
-                    <label for="edu_level" class="block mb-2 text-sm font-medium text-gray-900">Tahap Pendidikan</label>
+                    <div class="starlabel"><label for="edu_level" class="block mb-2 text-sm font-medium text-gray-900">Tahap Pendidikan</label></div>
                     <ul class="grid w-full gap-0 md:grid-cols-4">
                         <li>
                             <input type="radio" id="spm" value="SPM" name="edu_level" class="hidden peer" required />

@@ -20,8 +20,8 @@
 
         {{-- <input type="hidden" id="job_id" name="job_id" value="199401040896" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
         --}}
-        <div class="mb-5">
-            <label for="job_id" class="block mb-2 text-sm font-medium text-gray-900">Permohonan Bagi Jawatan (Sila Pilih)</label>
+        <div class="mb-5 ">
+            <div class="starlabel"><label for="job_id" class="block mb-2 text-sm font-medium text-gray-900 starlabel">Permohonan Bagi Jawatan (Sila Pilih)</label></div>
             <ul class="grid w-full gap-0 md:grid-cols-2">
                 @foreach($jobs as $job)
                     <li>
@@ -41,12 +41,12 @@
 
         <div class="border rounded rounded-xl p-4 mb-1">
         <p class="font-bold uppercase text-sm">Maklumat Peribadi</p>
-        <div class="mb-5">
+        <div class="mb-5 starlabel">
           <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
           <input type="text" id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
         </div>
 
-        <div class="mb-5">
+        <div class="mb-5 starlabel">
             <label for="birthdate" class="block mb-2 text-sm font-medium text-gray-900">Tarikh Lahir</label>
             <div class="relative max-w-md">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -54,12 +54,12 @@
                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                 </svg>
                 </div>
-                <input datepicker id="birthdate" name="birthdate" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Pilih Tarikh Lahir">
+                <input datepicker datepicker-autohide datepicker-format="dd-mm-yyyy" autocomplete="off" id="birthdate" name="birthdate" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Pilih Tarikh Lahir">
             </div>
         </div>
 
         <div class="mb-5">
-            <label for="gender" class="block mb-2 text-sm font-medium text-gray-900">Jantina</label>
+            <div class="starlabel"><label for="gender" class="block mb-2 text-sm font-medium text-gray-900">Jantina</label></div>
             <ul class="grid w-full gap-0 md:grid-cols-2">
                 <li>
                     <input type="radio" id="man" value="Lelaki" name="gender" class="hidden peer" required />
@@ -83,23 +83,23 @@
         </div>
 
 
-        <div class="mb-5">
+        <div class="mb-5 starlabel">
           <label for="race" class="block mb-2 text-sm font-medium text-gray-900">Bangsa</label>
           <input type="text" id="race" name="race" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
         </div>
 
-        <div class="mb-5">
+        <div class="mb-5 starlabel">
             <label for="age" class="block mb-2 text-sm font-medium text-gray-900">Umur (Tahun)</label>
             <input type="text" id="age" name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
         </div>
 
-        <div class="mb-5">
+        <div class="mb-5 starlabel">
             <label for="ic_num" class="block mb-2 text-sm font-medium text-gray-900">Nombor Kad Pengenalan (Tanpa -)</label>
             <input type="text" id="ic_num" name="ic_num" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
         </div>
 
         <div class="mb-5">
-            <label for="marital_status" class="block mb-2 text-sm font-medium text-gray-900">Status Perkahwinan</label>
+            <div class="starlabel"><label for="marital_status" class="block mb-2 text-sm font-medium text-gray-900">Status Perkahwinan</label></div>
             <ul class="grid w-full gap-0 md:grid-cols-3">
                 <li>
                     <input type="radio" id="single" value="single" name="marital_status" class="hidden peer" required />
@@ -128,29 +128,46 @@
             </ul>
         </div>
 
-        <div class="mb-5">
+        <div class="mb-5 starlabel">
             <label for="fixed_address" class="block mb-2 text-sm font-medium text-gray-900">Alamat Tetap</label>
             <textarea type="text" id="fixed_address" name="fixed_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required ></textarea>
         </div>
 
         <div class="mb-5">
             <label for="mail_address" class="block mb-2 text-sm font-medium text-gray-900">Alamat Surat Menyurat (Sekiranya berbeza dari alamat tetap)</label>
-            <textarea type="text" id="mail_address" name="mail_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required ></textarea>
+            <textarea type="text" id="mail_address" name="mail_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" ></textarea>
         </div>
 
-        <div class="mb-5">
+        <div class="mb-5 starlabel">
             <label for="phone_tel_num" class="block mb-2 text-sm font-medium text-gray-900">No. Telefon Bimbit (0123456789)</label>
             <input type="text" id="phone_tel_num" name="phone_tel_num" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
         </div>
 
         <div class="mb-5">
             <label for="home_tel_num" class="block mb-2 text-sm font-medium text-gray-900">No. Telefon Rumah (091234567)</label>
-            <input type="text" id="home_tel_num" name="home_tel_num" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+            <input type="text" id="home_tel_num" name="home_tel_num" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
         </div>
 
-        <div class="mb-5">
+        <div class="mb-5 starlabel">
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900">E-Mel</label>
             <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+        </div>
+
+        <div class="mb-5 starlabel">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Jangkaan Gaji (RM)</label>
+            <input type="text" id="expected_salary" name="expected_salary" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+        </div>
+
+        <div class="mb-5 starlabel">
+            <label for="expected_report_for_duty_date" class="block mb-2 text-sm font-medium text-gray-900">Jangkaan Tarikh Masuk</label>
+            <div class="relative max-w-md">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+                </div>
+                <input datepicker datepicker-autohide datepicker-format="dd-mm-yyyy" autocomplete="off" id="expected_report_for_duty_date" name="expected_report_for_duty_date" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Pilih Tarikh Anda Dijangka Akan Masuk">
+            </div>
         </div>
         {{-- <div class="flex items-center p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50" role="alert">
             <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

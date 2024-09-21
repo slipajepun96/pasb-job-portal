@@ -25,7 +25,7 @@
 
                 {{-- <p class=" font-semibold ">Tambah Maklumat Tambahan Pekerjaan Terkini </p> --}}
                 <div class="mb-5">
-                    <label for="bm_status" class="block mb-2 text-sm font-medium text-gray-900">Penguasaan Bahasa Melayu</label>
+                    <div class="starlabel"><label for="bm_status" class="block mb-2 text-sm font-medium text-gray-900">Penguasaan Bahasa Melayu</label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="baik" value="Baik" name="bm_status" class="hidden peer" required />
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="bi_status" class="block mb-2 text-sm font-medium text-gray-900">Penguasaan Bahasa Inggeris</label>
+                    <div class="starlabel"><label for="bi_status" class="block mb-2 text-sm font-medium text-gray-900">Penguasaan Bahasa Inggeris</label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="baik2" value="Baik" name="bi_status" class="hidden peer" required />
@@ -126,7 +126,7 @@
 
                 {{-- <p class=" font-semibold ">Tambah Maklumat Tambahan Pekerjaan Terkini </p> --}}
                 <div class="mb-5">
-                    <label for="drug_status" class="block mb-2 text-sm font-medium text-gray-900"> 1) Adakah anda pernah didakwa dan disabitkan dalam mana-mana mahkamah undang-undang untuk kesalahan jenayah atau Kesalahan dibawah Akta Dadah Berbahaya 1952? (jika ya, nyatakan butiran)</label>
+                    <div class="starlabel"><label for="drug_status" class="block mb-2 text-sm font-medium text-gray-900"> 1) Adakah anda pernah didakwa dan disabitkan dalam mana-mana mahkamah undang-undang untuk kesalahan jenayah atau Kesalahan dibawah Akta Dadah Berbahaya 1952? (jika ya, nyatakan butiran)</label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya1" value="Ya" name="drug_status" class="hidden peer" required />
@@ -149,7 +149,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="bankcrupt_status" class="block mb-2 text-sm font-medium text-gray-900"> 2) Adakan anda diisytiharkan bankrap?</label>
+                    <div class="starlabel"><label for="bankcrupt_status" class="block mb-2 text-sm font-medium text-gray-900"> 2) Adakan anda diisytiharkan bankrap?</label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya2" value="Ya" name="bankcrupt_status" class="hidden peer" required />
@@ -172,7 +172,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="business_status" class="block mb-2 text-sm font-medium text-gray-900"> 3) Adakan anda terlibat dalam sebarang usaha perniagaan, termasuk perniagaan keluarga? (jika ya, nyatakan butiran)</label>
+                    <div class="starlabel"><label for="business_status" class="block mb-2 text-sm font-medium text-gray-900"> 3) Adakan anda terlibat dalam sebarang usaha perniagaan, termasuk perniagaan keluarga? (jika ya, nyatakan butiran)</label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya3" value="Ya" name="business_status" class="hidden peer" required />
@@ -195,7 +195,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="license_status" class="block mb-2 text-sm font-medium text-gray-900"> 4) Adakan anda mempunyai lesen memandu? (jika ya, nyatakan kelas apa)</label>
+                    <div class="starlabel"><label for="license_status" class="block mb-2 text-sm font-medium text-gray-900"> 4) Adakan anda mempunyai lesen memandu? (jika ya, nyatakan kelas apa)</label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya4" value="Ya" name="license_status" class="hidden peer" required />
@@ -218,7 +218,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="smoking_status" class="block mb-2 text-sm font-medium text-gray-900"> 5) Adakan anda seorang perokok?</label>
+                    <div class="starlabel"><label for="smoking_status" class="block mb-2 text-sm font-medium text-gray-900"> 5) Adakan anda seorang perokok?</label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya5" value="Ya" name="smoking_status" class="hidden peer" required />
@@ -240,7 +240,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="drinking_status" class="block mb-2 text-sm font-medium text-gray-900"> 6) Adakan anda seorang peminum arak?</label>
+                    <div class="starlabel"><label for="drinking_status" class="block mb-2 text-sm font-medium text-gray-900"> 6) Adakan anda seorang peminum arak?</label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya6" value="Ya" name="drinking_status" class="hidden peer" required />
@@ -275,7 +275,7 @@
 
                 {{-- <p class=" font-semibold ">Tambah Maklumat Tambahan Pekerjaan Terkini </p> --}}
                 <div class="mb-5">
-                    <label for="illness_status" class="block mb-2 text-sm font-medium text-gray-900"> 1) Pernahkah anda atau sedang mengalami sebarang penyakit? (jika ya, nyatakan butiran) </label>
+                    <div class="starlabel"><label for="illness_status" class="block mb-2 text-sm font-medium text-gray-900"> 1) Pernahkah anda atau sedang mengalami sebarang penyakit? (jika ya, nyatakan butiran) </label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya7" value="Ya" name="illness_status" class="hidden peer" required />
@@ -298,7 +298,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="physical_status" class="block mb-2 text-sm font-medium text-gray-900"> 2) Adakah anda mengalami kecacatan fizikal? (jika ya, nyatakan butiran)</label>
+                    <div class="starlabel"><label for="physical_status" class="block mb-2 text-sm font-medium text-gray-900"> 2) Adakah anda mengalami kecacatan fizikal? (jika ya, nyatakan butiran)</label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya8" value="Ya" name="physical_status" class="hidden peer" required />
@@ -321,7 +321,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="pregnancy_status" class="block mb-2 text-sm font-medium text-gray-900"> 3) Adakah anda sedang hamil atau merancang memiliki bayi tidak lama lagi? (untuk calon perempuan sahaja)</label>
+                    <div class="starlabel"><label for="pregnancy_status" class="block mb-2 text-sm font-medium text-gray-900"> 3) Adakah anda sedang hamil atau merancang memiliki bayi tidak lama lagi? (untuk calon perempuan sahaja)</label></div>
                     <ul class="grid w-full gap-2 md:grid-cols-3">
                         <li>
                             <input type="radio" id="ya9" value="Ya" name="pregnancy_status" class="hidden peer" />

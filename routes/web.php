@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('index');
 // });
-// Route::get('/apply-form', function () {
-//     return view('apply-form.apply-form');
-// });
+Route::get('/apply-form-pdf', function () {
+    return view('pdf.apply_form_pdf');
+});
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -48,7 +48,11 @@ Route::middleware(['auth'],['preventBackHistory'])->group(function()
     Route::get('/jobs',[JobController::class,'index'])->name('index-jobs');
     Route::get('/jobs/add',[JobController::class,'viewAddForm'])->name('view-add-job');
 
+    Route::post('/dashboard',[IndexController::class,'indexWithSelection'])->name('index-job-selected');
     Route::post('/jobs/add',[JobController::class,'storeAddForm'])->name('add-job');
-    Route::post('/dashboard',[IndexController::class,'getAttachment'])->name('get-attachment');
+    Route::post('/jobs/delete',[JobController::class,'deleteJob'])->name('delete-job');
+    Route::post('/dashboardd',[IndexController::class,'getAttachment'])->name('get-attachment');
+    Route::post('/dashboard/apply_form_pdf',[IndexController::class,'getFormPDF'])->name('get-apply_form_pdf');
+    // Route::post('/dashboard/apply_form_view',[IndexController::class,'getFormVIew'])->name('get-apply_form_view');
 
 });

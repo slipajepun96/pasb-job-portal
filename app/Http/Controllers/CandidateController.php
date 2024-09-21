@@ -43,10 +43,12 @@ class CandidateController extends Controller
             'ic_num' => 'required',
             'marital_status' => 'required',
             'fixed_address' => 'required',
-            'mail_address' => 'required',
+            'mail_address' => '',
             'phone_tel_num' => 'required',
-            'home_tel_num' => 'required',
-            'email' => 'required'
+            'home_tel_num' => '',
+            'email' => 'required',
+            'expected_salary' => 'required',
+            'expected_report_for_duty_date' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -73,6 +75,8 @@ class CandidateController extends Controller
         $candidate->phone_tel_num = $request->phone_tel_num;
         $candidate->home_tel_num = $request->home_tel_num;
         $candidate->email = $request->email;
+        $candidate->expected_salary = $request->expected_salary;
+        $candidate->expected_report_for_duty_date = $request->expected_report_for_duty_date;
 
         $candidate->save();
 
@@ -104,8 +108,8 @@ class CandidateController extends Controller
             'name' => 'required',
             'relationship' => 'required',
             'age' => 'required',
-            'occupation' => 'required',
-            'company_name' => 'required',
+            'occupation' => '',
+            'company_name' => '',
         ]);
 
         if ($validator->fails()) {
@@ -162,7 +166,7 @@ class CandidateController extends Controller
             'start_year' => 'required',
             'end_year' => 'required',
             'edu_level' => 'required',
-            'edu_course_name' => 'required',
+            'edu_course_name' => '',
         ]);
 
         if ($validator->fails()) {
@@ -219,9 +223,9 @@ class CandidateController extends Controller
             'employer_name' => 'required',
             'designation' => 'required',
             'start_year' => 'required',
-            'end_year' => 'required',
+            'end_year' => '',
             'final_salary' => 'required',
-            'resign_reason' => 'required',
+            'resign_reason' => '',
         ]);
 
         if ($validator->fails()) {
@@ -278,7 +282,7 @@ class CandidateController extends Controller
             'job_id' => 'required',
             'candidate_id' => 'required',
             'current_salary' => 'required',
-            'current_allowance' => 'required',
+            'current_allowance' => '',
             'latest_bonus_sum' => '',
             'latest_bonus_date' => '',
             'responsible_officer' => 'required',
@@ -464,13 +468,13 @@ class CandidateController extends Controller
             'emgcy_contact_name' => 'required',
             'emgcy_contact_relationship' => 'required',
             'emgcy_contact_phone_num' => 'required',
-            'ref1_name' => '',
+            'ref1_name' => 'required',
             'ref1_phone_num' => 'required',
-            'ref1_company' => '',
+            'ref1_company' => 'required',
             'ref1_designation' => 'required',
-            'ref2_name' => '',
+            'ref2_name' => 'required',
             'ref2_phone_num' => 'required',
-            'ref2_company' => '',
+            'ref2_company' => 'required',
             'ref2_designation' => 'required',
             'attachment' => '',
         ]);
@@ -485,7 +489,7 @@ class CandidateController extends Controller
 
         $validated=$validator->validated();
 
-        $file = $request->file('attachment')->store('attachment/'.$request->candidate_id,'public');
+        $file = $request->file('attachment')->store("/attachment/".$request->candidate_id,'public');
         // $path = $file->store('uploads', 'public');
         // dd($file);
 
@@ -508,6 +512,8 @@ class CandidateController extends Controller
         $other_information->ref2_company = $request->ref2_company;
         $other_information->ref2_designation = $request->ref2_designation;
         $other_information->save();
+
+        Session::flash('status','Permohonan anda telah berjaya dihantar. Kami akan menghubungi anda jika anda disenarai pendek untuk sesi temuduga. Terima Kasih.');
 
         return redirect('/');
 

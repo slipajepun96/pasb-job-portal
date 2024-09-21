@@ -24,19 +24,19 @@
                 <input type="hidden" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required />
 
                 {{-- <p class=" font-semibold ">Tambah Maklumat Tambahan Pekerjaan Terkini </p> --}}
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="current_salary" class="block mb-2 text-sm font-medium text-gray-900">Gaji Pokok Semasa (RM)</label>
                     <input type="text" id="current_salary" name="current_salary" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
                 <div class="mb-5">
                     <label for="current_allowance" class="block mb-2 text-sm font-medium text-gray-900">Elaun Semasa (RM) (Jika Ada)</label>
-                    <input type="text" id="current_allowance" name="current_allowance" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    <input type="text" id="current_allowance" name="current_allowance" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
                 </div>
 
                 <div class="mb-5">
                     <label for="latest_bonus_sum" class="block mb-2 text-sm font-medium text-gray-900">Jumlah Bonus Terkini (RM)</label>
-                    <input type="text" id="latest_bonus_sum" name="latest_bonus_sum" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    <input type="text" id="latest_bonus_sum" name="latest_bonus_sum" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
                 </div>
 
                 <div class="mb-5">
@@ -47,21 +47,21 @@
                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                         </svg>
                         </div>
-                        <input datepicker id="latest_bonus_date" name="latest_bonus_date" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Pilih Tarikh Terakhir Bonus">
+                        <input datepicker datepicker-autohide datepicker-format="dd-mm-yyyy" autocomplete="off" id="latest_bonus_date" name="latest_bonus_date" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Pilih Tarikh Terakhir Bonus">
                     </div>
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="responsible_officer" class="block mb-2 text-sm font-medium text-gray-900">Laporkan Kepada Siapa ? (Nama Pegawai Anda)</label>
                     <input type="text" id="responsible_officer" name="responsible_officer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="num_staff_under" class="block mb-2 text-sm font-medium text-gray-900">Bilangan Orang Yang Melapor Kepada Anda</label>
                     <input type="text" id="num_staff_under" name="num_staff_under" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="resign_period" class="block mb-2 text-sm font-medium text-gray-900">Tempoh Notis Peletakan Jawatan Untuk Pekerjaan Semasa (Minggu / Bulan)</label>
                     <input type="text" id="resign_period" name="resign_period" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>

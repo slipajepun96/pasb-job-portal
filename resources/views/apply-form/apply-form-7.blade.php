@@ -54,7 +54,7 @@
                 <input type="hidden" id="job_id" name="job_id" value="199401040896" class="" required />
                 <input type="hidden" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required />
 
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="hobby" class="block mb-2 text-sm font-medium text-gray-900">Nama Kemahiran / Bakat / Hobi</label>
                     <input type="text" id="hobby" name="hobby" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
@@ -84,17 +84,17 @@
 
             {{-- <p class=" font-semibold ">Tambah Maklumat Tambahan Pekerjaan Terkini </p> --}}
 
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="emgcy_contact_name" class="block mb-2 text-sm font-medium text-gray-900">Nama </label>
                 <input type="text" id="emgcy_contact_name" name="emgcy_contact_name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>
 
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="emgcy_contact_relationship" class="block mb-2 text-sm font-medium text-gray-900">Hubungan </label>
                 <input type="text" id="emgcy_contact_relationship" name="emgcy_contact_relationship" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>
 
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="emgcy_contact_phone_num" class="block mb-2 text-sm font-medium text-gray-900">No. Telefon </label>
                 <input type="text" id="emgcy_contact_phone_num" name="emgcy_contact_phone_num" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>
@@ -106,22 +106,22 @@
 
         <div class="border rounded rounded-xl p-4 mb-1">
             <p class="font-semibold  text-md ">Rujukan Pertama</p>
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="ref1_name" class="block mb-2 text-sm font-medium text-gray-900">Nama </label>
                 <input type="text" id="ref1_name" name="ref1_name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>
 
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="ref1_phone_num" class="block mb-2 text-sm font-medium text-gray-900">No. Telefon </label>
                 <input type="text" id="ref1_phone_num" name="ref1_phone_num" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>
 
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="ref1_company" class="block mb-2 text-sm font-medium text-gray-900">Nama Syarikat</label>
                 <input type="text" id="ref1_company" name="ref1_company" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>
 
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="ref1_designation" class="block mb-2 text-sm font-medium text-gray-900">Jawatan </label>
                 <input type="text" id="ref1_designation" name="ref1_designation" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>
@@ -129,22 +129,22 @@
 
         <div class="border rounded rounded-xl p-4 mb-1">
             <p class="font-semibold  text-md ">Rujukan Kedua</p>
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="ref2_name" class="block mb-2 text-sm font-medium text-gray-900">Nama </label>
                 <input type="text" id="ref2_name" name="ref2_name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>
 
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="ref2_phone_num" class="block mb-2 text-sm font-medium text-gray-900">No. Telefon </label>
                 <input type="text" id="ref2_phone_num" name="ref2_phone_num" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>
 
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="ref2_company" class="block mb-2 text-sm font-medium text-gray-900">Nama Syarikat</label>
                 <input type="text" id="ref2_company" name="ref2_company" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>
 
-            <div class="mb-5">
+            <div class="mb-5 starlabel">
                 <label for="ref2_designation" class="block mb-2 text-sm font-medium text-gray-900">Jawatan </label>
                 <input type="text" id="ref2_designation" name="ref2_designation" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
             </div>

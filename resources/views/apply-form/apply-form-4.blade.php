@@ -86,34 +86,34 @@
                 <input type="hidden" id="candidate_id" name="candidate_id" value="{{$candidate_id}}" class="" required />
 
                 <p class=" font-semibold ">Tambah Maklumat Pekerjaan </p>
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="employer_name" class="block mb-2 text-sm font-medium text-gray-900">Nama Majikan</label>
                     <input type="text" id="employer_name" name="employer_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="designation" class="block mb-2 text-sm font-medium text-gray-900">Jawatan</label>
                     <input type="text" id="designation" name="designation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="start_year" class="block mb-2 text-sm font-medium text-gray-900">Tahun Mula Bekerja</label>
                     <input type="text" id="start_year" name="start_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="\d*" maxlength="4" required />
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-5 ">
                     <label for="end_year" class="block mb-2 text-sm font-medium text-gray-900">Tahun Habis Bekerja</label>
-                    <input type="text" id="end_year" name="end_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="\d*" maxlength="4" required />
+                    <input type="text" id="end_year" name="end_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="\d*" maxlength="4" />
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-5 starlabel">
                     <label for="final_salary" class="block mb-2 text-sm font-medium text-gray-900">Gaji Akhir (RM)</label>
                     <input type="text" id="final_salary" name="final_salary" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                 </div>
 
                 <div class="mb-5">
                     <label for="resign_reason" class="block mb-2 text-sm font-medium text-gray-900">Sebab Berhenti</label>
-                    <input type="text" id="resign_reason" name="resign_reason" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    <input type="text" id="resign_reason" name="resign_reason" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  />
                 </div>
 
                 <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Simpan Maklumat Pekerjaan</button>
