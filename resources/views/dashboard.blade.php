@@ -4,8 +4,11 @@
 
 <section class="">
     <div class="py-8 px-4 mx-auto  text-center lg:py-8 m-2">
-        <h1 class="mb-2 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-3xl">Senarai Permohonan Kerjaya</h1>
-        {{-- <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48">Isikan borang dibawah dengan lengkap</p> --}}
+        <h1 class="mb-2 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-3xl">Senarai Permohonan</h1>
+        @if(!empty($job_details))
+        <p class="text-lg font-normal text-gray-500 lg:text-xl ">Jawatan : {{$job_details->job_ads_title}} ({{$job_details->start_date}}) </p>
+        <p class="text-lg font-normal text-gray-500 lg:text-xl ">46 Permohonan </p>
+        @endif
     </div>
 
     <div class="max-w-screen-lg m-2 mx-auto">
@@ -16,9 +19,9 @@
 
             <label for="job_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Nama Jawatan</label>
             <select id="job_id" name="job_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              {{-- <option selected>Choose a country</option> --}}
+              <option selected value="01">-Please Select-</option>
               @foreach($jobs as $job)
-                <option  value="{{$job->id}}">{{$job->job_ads_title}}</option>
+                <option  value="{{$job->id}}">{{$job->job_ads_title}} - Date Posted : {{$job->start_date}}</option>
               @endforeach
             </select>
             <button type="submit" class="text-white bg-lime-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Tapis</button>
@@ -28,6 +31,9 @@
             <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                 <thead class="text-xs text-white uppercase bg-gray-500">
                     <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Bil.
+                        </th>
                         <th scope="col" class="px-6 py-3">
                             Nama
                         </th>
@@ -46,11 +52,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i=0;?>
                     @foreach($candidate_data as $candidate)
                     <tr class="bg-white border-b hover:bg-gray-50">
                         <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            <?php $i=$i+1; echo $i;?>
+                        </td>
+                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {{$candidate->name}}
-                        </th>
+                        </td>
                         <td class="px-6 py-4">
                             <?php 
                                 foreach($jobs as $job)
@@ -76,11 +86,11 @@
                                 <input type="hidden" id="attachment_location" name="attachment_location" value="{{$candidate->attachment_location}}" class="" required /> 
                                 <button  class=" bg-cyan-700 px-2 py-1 text-white rounded font-medium text-blue-600 hover:underline">Muat Turun Lampiran</a>
                             </form> --}}
-                            <a href="/storage/{{$candidate->attachment_location}}" class="bg-cyan-700 px-2 py-1 text-white rounded font-medium text-blue-600 hover:underline">Muat Turun Lampiran</a>
+                            <a href="/storage/{{$candidate->attachment_location}}" ><button class="bg-green-700 px-2 py-1 text-white rounded font-medium text-blue-600 hover:underline mb-1">Muat Turun Lampiran<button></a>
                             <form action="{{route('get-apply_form_pdf')}}" method="POST">
                                 @csrf
                                 <input type="hidden" id="id" name="id" value="{{$candidate->id}}" class="" required /> 
-                                <button  class=" mt-1 bg-teal-700 px-2 py-1 text-white rounded font-medium text-blue-600 hover:underline">Muat Turun PDF</a>
+                                <button  class=" mt-1 bg-green-700 px-2 py-1 text-white rounded font-medium text-blue-600 hover:underline">Muat Turun PDF</a>
                             </form>
                             {{-- <form action="{{route('delete-apply-form-pg3')}}" method="POST"> --}}
                                 {{-- @csrf --}}

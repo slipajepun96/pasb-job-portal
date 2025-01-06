@@ -59,7 +59,8 @@
                     <div class="uppercase text-sm px-1 py-1">2.</div>
                     <div class="uppercase text-sm px-1 py-1">Tarikh Lahir</div>
                     <div class="uppercase text-sm px-1 py-1">:</div>
-                    <div class="uppercase text-sm px-1 py-1 font-semibold"> {{date('d-m-Y', strtotime($data[0]->birthdate))}}</div>
+                    {{-- <div class="uppercase text-sm px-1 py-1 font-semibold"> {{date('d-m-Y', strtotime($data[0]->birthdate))}}</div> --}}
+                    <div class="uppercase text-sm px-1 py-1 font-semibold"> {{$data[0]->birthdate}}</div>
                 </div>
                 <div class="flex">
                     <div class="uppercase text-sm px-1 py-1">4.</div>
@@ -95,7 +96,18 @@
                     <div class="uppercase text-sm px-1 py-1">8.</div>
                     <div class="uppercase text-sm px-1 py-1">Status Perkahwinan</div>
                     <div class="uppercase text-sm px-1 py-1">:</div>
-                    <div class="uppercase text-sm px-1 py-1 font-semibold">{{$data[0]->marital_status}} </div>
+                    {{-- {{$data[0]->marital_status}}  --}}
+                    <div class="uppercase text-sm px-1 py-1 font-semibold">
+                        @if($data[0]->marital_status=="married")
+                        Berkahwin
+                        @elseif($data[0]->marital_status=="single")
+                        Bujang
+                        @elseif($data[0]->marital_status=="divorced")
+                        Bercerai
+                        @else
+                        Tiada Status
+                        @endif
+                    </div>
                 </div>
             </div>
             <div class="w-1/2">

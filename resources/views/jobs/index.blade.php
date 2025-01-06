@@ -43,7 +43,6 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{$job->end_date}}
-                                {{$job->id}}
                             </td>
                             <td class="px-6 py-4">
                                 @if($job->ads_link)<a href="{{$job->ads_link}}" class="underline text-blue-400" target="_blank">Pautan Iklan</a>@else No Link @endif

@@ -23,16 +23,29 @@ class IndexController extends Controller
         $candidate_data=Candidate::where('form_submitted_date','!=','')->where('job_id','!=','')->get();
         $jobs=Job::all();
 
+
+
         return view('dashboard',['candidate_data' => $candidate_data,'jobs' => $jobs]);
     }
 
     public function indexWithSelection(Request $request)
     {
-        $candidate_data=Candidate::where('job_id','=',$request->job_id)->where('form_submitted_date','!=','')->where('job_id','!=','')->get();
+        if($request->job_id=="01")
+        {
+            $candidate_data=Candidate::where('form_submitted_date','!=','')->where('job_id','!=','')->get();   
+            $job_details="";
+        }
+        else
+        {
+            $candidate_data=Candidate::where('job_id','=',$request->job_id)->where('form_submitted_date','!=','')->where('job_id','!=','')->get();
+            $job_details=Job::where('id','=',$request->job_id)->firstOrFail();
+        }
+
+
+
         $jobs=Job::all();
 
-
-        return view('dashboard',['candidate_data' => $candidate_data,'jobs' => $jobs]);
+        return view('dashboard',['candidate_data' => $candidate_data,'jobs' => $jobs, 'job_details' => $job_details]);
     }
 
     public function main()
