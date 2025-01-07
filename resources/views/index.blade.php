@@ -24,9 +24,6 @@
         
 
     </div>
-  {{-- <div class="justify-center w-full text-center font-bold my-20">
-    <p>Harap Maaf, Tiada Notis & Iklan Pada Masa Ini.</p>
-  </div> --}}
   @if(!$jobs->isEmpty())
   @foreach($jobs as $job)
     <div class="max-w-screen-xl mx-auto justify-center w-auto">
