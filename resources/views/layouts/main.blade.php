@@ -7,12 +7,14 @@
         <title>Portal Kerjaya PASB</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        {{-- <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" /> --}}
+        {{-- <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" /> --}}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
         
+        {{-- @googlefonts --}}
+
         <style>
             .starlabel label:after {
                 content:" *";
@@ -20,7 +22,8 @@
         </style>
 
     </head>
-    <body class="font-sans antialiased">
+    {{-- <body class="font-sans antialiased">     --}}
+    <body class="antialiased">
 
      @if(!Auth::guest())
 <nav class="bg-white border-gray-200 shadow-xl">

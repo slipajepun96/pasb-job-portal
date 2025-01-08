@@ -9,7 +9,11 @@ export default {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'], // Override the default sans font
+      },
+    },
   },
   plugins: [
     require('flowbite/plugin')
