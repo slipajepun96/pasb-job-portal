@@ -3,12 +3,12 @@
 @section('content')
 
 <section class="">
-    <div class="py-8 px-4 mx-auto  text-center lg:py-8 m-2">
-        <h1 class="mb-2 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-3xl">Tambah Jawatan Kosong</h1>
+    <div class="">
+        <h1 class="mb-2 text-2xl font-bold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-2xl">Tambah Jawatan Kosong</h1>
     </div>
     <div class="max-w-screen-lg m-2 mx-auto">
 
-        <div class="border rounded rounded-xl p-4 mb-1">
+        <div class="">
             <form action="{{route('add-job')}}" method="POST">
                 @csrf
 

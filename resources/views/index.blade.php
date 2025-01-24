@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.index')
 
 @section('content')
 
@@ -10,8 +10,8 @@
 @endif
 
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-8">
-        <h1 class="mb-4 text-xl md:text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-4xl">Kerjaya di PKPP Agro</h1>
-        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48">Mari 
+        <h1 class="mb-4 text-xl md:text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-4xl">Kerjaya di PKPP Agro</h1>
+        {{-- <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48">Mari 
           <span class="text-lime-500 mx-1 font-bold text-lg relative inline-block stroke-current">
               membangun
               <svg class="absolute -bottom-0.5 w-full max-h-1.5" viewBox="0 0 55 5" xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@
                   <path d="M0.652466 4.00002C15.8925 2.66668 48.0351 0.400018 54.6853 2.00002" stroke-width="2"></path>
               </svg>
           </span>
-        bersama kami. hahaha</p>
+        bersama kami.</p> --}}
         
         
 
@@ -58,12 +58,13 @@
   @else
   <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-8 m-2">
     
-    <h1 class="mb-2 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-3xl">Harap Maaf</h1>
+    <h1 class="mb-2 text-xl font-extrabold tracking-tight leading-none text-sky-500 md:text-3xl lg:text-2xl">Harap Maaf</h1>
     <p class="mb-8 text-lg font-normal text-gray-500 lg:text-lg sm:px-16 lg:px-48">Tiada Jawatan Kosong Dibuka Pada Masa Ini</p>
+    <p class="mb-8 text-lg font-normal text-gray-500 lg:text-lg sm:px-16 lg:px-48">Namun anda boleh tinggalkan maklumat anda dan<br> anda akan diberitahu jika terdapat kekosongan dibuka.</p>
 
 
 
-    <div class="md:max-w-md mx-auto p-4 text-center bg-blue-600 border border-gray-200 rounded-2xl shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    {{-- <div class="md:max-w-md mx-auto p-4 text-center bg-blue-600 border border-gray-200 rounded-2xl shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
         <h5 class="mb-2 text-3xl font-bold text-white">Ikuti kami di Facebook!</h5>
         <p class="mb-5 text-base text-gray-100 sm:text-lg ">Dapatkan maklumat terkini mengenai peluang pekerjaan di PKPP Agro</p>
 
@@ -86,13 +87,25 @@
             </span>
             </button>
         </a>
-    </div>
+    </div> --}}
   @endif
+  <div id="g_id_onload"
+    data-client_id="{{env('GOOGLE_CLIENT_ID'),}}"
+    data-login_uri="https://127.0.0.1:8000/auth/google/callback"
+    data-auto_prompt="true">
+  </div>
+  <div class="g_id_signin"
+    data-type="standard"
+    data-size="large"
+    data-theme="outline"
+    data-text="sign_in_with"
+    data-shape="rectangular"
+    data-logo_alignment="left">
+  </div>
 
 
 
-
-  
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   
   </section>
   

@@ -20,12 +20,27 @@ class IndexController extends Controller
 {
     public function index(Request $request)
     {
-        $candidate_data=Candidate::where('form_submitted_date','!=','')->where('job_id','!=','')->get();
+        // $candidate_data=Candidate::where('form_submitted_date','!=','')->where('job_id','!=','')->get();
+        // $num_of_applicant;
         $jobs=Job::all();
 
+        $i = 0;
+        foreach($jobs as $job)
+        {
+            $num_of_applicant = 0;
+            $candidate_data=Candidate::where('form_submitted_date','!=','')->where('job_id','=',$job->id)->get();
+            $num_of_applicant = count($candidate_data);
 
+            $data[$i][0] = $job->job_ads_title;
+            $data[$i][1] = $job->start_date;
+            $data[$i][2] = $job->end_date;
+            $data[$i][3] = $num_of_applicant;
+            $data[$i][4] = $job->id;
+            $i++;
+        }
+        // dd($data);
 
-        return view('dashboard',['candidate_data' => $candidate_data,'jobs' => $jobs]);
+        return view('dashboard',['data' => $data]);
     }
 
     public function indexWithSelection(Request $request)
@@ -88,14 +103,14 @@ class IndexController extends Controller
     // {->margins($top, $right, $bottom, $left)
         return pdf()->view('pdf.apply_form_pdf', compact('data'))->margins(10, 10, 10, 10)->name('invoice-2023-04-10.pdf');
     }
-    // public function getFormView(Request $request)
-    // {
-    //     $candidate_data = Candidate::where('id','=',$request->id)->firstOrFail();
-    //     $relative_data = Relative::where('candidate_id','=',$request->id)->get();
-    //     dd($relative_data);
-    //     $data[0] = $candidate_data;
-    //     $data[1] = $relative_data;
-    // // {->margins($top, $right, $bottom, $left)
-    //     return view('pdf.apply_form_pdf', compact('data'));
-    // }
+
+    public function applicantList($job_id)
+    {
+
+            $candidate_data = Candidate::where('job_id','=',$job_id)->where('form_submitted_date','!=','')->where('job_id','!=','')->get();
+            $job_details=Job::where('id','=',$job_id)->firstOrFail();
+            $num_of_applicant = count($candidate_data);
+
+        return view('applicant-list',['candidate_data' => $candidate_data, 'job_details' => $job_details, 'num_of_applicant' => $num_of_applicant]);
+    }
 }
