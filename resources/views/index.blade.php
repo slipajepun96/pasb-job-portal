@@ -89,23 +89,40 @@
         </a>
     </div> --}}
   @endif
-  <div id="g_id_onload"
-    data-client_id="{{env('GOOGLE_CLIENT_ID'),}}"
-    data-login_uri="https://127.0.0.1:8000/auth/google/callback"
-    data-auto_prompt="true">
+  <div class="flex flex-row items-center justify-center">
+
+
+	@guest
+		<div id="g_id_onload"
+			data-auto_select="true"
+			data-client_id="{{ config('services.google-one-tap.client_id') }}"
+			data-login_uri="{{ config('services.google-one-tap.redirect') }}"
+			data-use_fedcm_for_prompt="false">
+		</div>
+
+		<div class="g_id_signin"
+			data-type="standard">
+		</div>
+	@endguest
+		{{-- <div class="g_id_signin"
+		data-type="standard"
+		data-size="large"
+		data-theme="outline"
+		data-text="sign_in_with"
+		data-shape="rectangular"
+		data-logo_alignment="center">
+		</div> --}}
+		@auth
+		<form action="{{ route('logout') }}" method="post">
+			@csrf
+			<button class="g_id_signout">Sign out</button>
+		</form>
+		@endauth
   </div>
-  <div class="g_id_signin"
-    data-type="standard"
-    data-size="large"
-    data-theme="outline"
-    data-text="sign_in_with"
-    data-shape="rectangular"
-    data-logo_alignment="left">
-  </div>
 
 
 
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
   
   </section>
   

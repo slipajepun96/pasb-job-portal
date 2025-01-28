@@ -16,14 +16,17 @@ use App\Http\Middleware\RelaxHeaders;
 
 
 
-Route::get('/',[IndexController::class,'main']);
-Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+Route::get('/main',[IndexController::class,'main']);
+// Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 Route::post('/auth/google/callback', [GoogleController::class, 'handleGoogleOneTap']);
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
 
 
 Route::middleware(['auth'],['preventBackHistory'])->group(function()
 {
-    Route::get('/dashboard',[IndexController::class,'index'])->name('index');
+    Route::get('/',[IndexController::class,'index'])->name('index');
     Route::get('/jobs',[JobController::class,'index'])->name('index-jobs');
     Route::get('/jobs/add',[JobController::class,'viewAddForm'])->name('view-add-job');
     Route::get('/applicant-list/{job_id}',[IndexController::class,'applicantList'])->name('applicantList');
@@ -35,6 +38,8 @@ Route::middleware(['auth'],['preventBackHistory'])->group(function()
     Route::get('/apply-form/{candidate_id}/5',[CandidateController::class,'viewApplyFormPg5'])->name('apply-form-pg5');
     Route::get('/apply-form/{candidate_id}/6',[CandidateController::class,'viewApplyFormPg6'])->name('apply-form-pg6');
     Route::get('/apply-form/{candidate_id}/7',[CandidateController::class,'viewApplyFormPg7'])->name('apply-form-pg7');
+
+    Route::get('/profile',[CandidateController::class,'viewProfileIndex']);
 
     Route::post('/dashboard',[IndexController::class,'indexWithSelection'])->name('index-job-selected');
     Route::post('/jobs/add',[JobController::class,'storeAddForm'])->name('add-job');

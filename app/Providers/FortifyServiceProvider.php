@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
+use App\Models\Job;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,11 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::loginView(function () {
             return view('auth.login');
+            // $today=date("m/d/Y");
+            // $jobs=Job::where('end_date','>=',$today)->where('start_date','<=',$today)->get();
+    
+    
+            // return view('index',['jobs' => $jobs]);
         });
 
         RateLimiter::for('login', function (Request $request) {

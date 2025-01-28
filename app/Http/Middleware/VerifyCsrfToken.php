@@ -12,7 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'auth/google/callback', // Exclude the Google One Tap callback route
+        // '/auth/google/callback', // Exclude the Google One Tap callback route
     ];
 }
 

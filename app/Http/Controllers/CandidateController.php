@@ -21,6 +21,16 @@ class CandidateController extends Controller
 {
 
 
+    public function viewProfileIndex()
+    {
+        $today=date("m/d/Y");
+        $jobs=Job::where('end_date','>=',$today)->where('start_date','<=',$today)->get();
+        // $jobs=Job::all();
+        // dd($jobs);
+
+        return view('profile_form.profile_form-index',['jobs' => $jobs]);
+    }
+
     public function viewApplyFormPg1()
     {
         $today=date("m/d/Y");

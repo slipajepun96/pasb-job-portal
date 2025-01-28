@@ -20,8 +20,8 @@ class IndexController extends Controller
 {
     public function index(Request $request)
     {
-        // $candidate_data=Candidate::where('form_submitted_date','!=','')->where('job_id','!=','')->get();
-        // $num_of_applicant;
+        $candidate_data=Candidate::where('form_submitted_date','!=','')->where('job_id','!=','')->get();
+        $num_of_applicant;
         $jobs=Job::all();
 
         $i = 0;
@@ -41,6 +41,9 @@ class IndexController extends Controller
         // dd($data);
 
         return view('dashboard',['data' => $data]);
+
+
+
     }
 
     public function indexWithSelection(Request $request)
@@ -104,13 +107,14 @@ class IndexController extends Controller
         return pdf()->view('pdf.apply_form_pdf', compact('data'))->margins(10, 10, 10, 10)->name('invoice-2023-04-10.pdf');
     }
 
-    public function applicantList($job_id)
+    public function applicantList(Request $request,$job_id)
     {
 
             $candidate_data = Candidate::where('job_id','=',$job_id)->where('form_submitted_date','!=','')->where('job_id','!=','')->get();
             $job_details=Job::where('id','=',$job_id)->firstOrFail();
             $num_of_applicant = count($candidate_data);
 
-        return view('applicant-list',['candidate_data' => $candidate_data, 'job_details' => $job_details, 'num_of_applicant' => $num_of_applicant]);
+        return view('applicant-list',['candidate_data' => $candidate_data, 'job_details' => $job_details, 'num_of_applicant' => $num_of_applicant, 'job_id'=>$job_id]);
+        // return view('applicant-list', compact('job_id'));
     }
 }

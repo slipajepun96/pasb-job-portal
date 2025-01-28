@@ -21,7 +21,7 @@
             @foreach($data as $job)
                 <div>
                     <a href="/applicant-list/{{$job[4]}}" >
-                        <div class="p-3 bg-white border border-gray-200 rounded-xl shadow-sm">
+                        <div class="p-3 bg-white border border-gray-200 rounded-xl shadow-sm mb-2">
                             <h5 class="text-lg font-bold tracking-tight text-gray-900 ">{{$job[0]}} </h5>
                             <p class=" text-sm font-bold tracking-tight text-gray-600 ">Date Posted : {{$job[1]}} - {{$job[2]}} </p>
                             <p class=" text-sm font-medium tracking-tight text-gray-600 ">{{$job[3]}} Permohonan</p>
