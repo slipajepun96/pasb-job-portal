@@ -22,8 +22,6 @@ class Relative extends Model
     }
 
     protected $fillable = [
-        'job_id',
-        'candidate_id',
         'name',
         'relationship',
         'occupation',

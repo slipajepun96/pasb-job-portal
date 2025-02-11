@@ -40,6 +40,26 @@ Route::middleware(['auth'],['preventBackHistory'])->group(function()
     Route::get('/apply-form/{candidate_id}/7',[CandidateController::class,'viewApplyFormPg7'])->name('apply-form-pg7');
 
     Route::get('/profile',[CandidateController::class,'viewProfileIndex']);
+    Route::get('/profile/first-time',[CandidateController::class,'viewProfileFormForFirstTimePg1']);
+    Route::get('/profile/first-time/2',[CandidateController::class,'viewProfileFormForFirstTimePg2'])->name('viewProfileFormForFirstTimePg2');
+    Route::get('/profile/first-time/3',[CandidateController::class,'viewProfileFormForFirstTimePg3'])->name('viewProfileFormForFirstTimePg3');
+    Route::get('/profile/first-time/4',[CandidateController::class,'viewProfileFormForFirstTimePg4'])->name('viewProfileFormForFirstTimePg4');
+    Route::get('/profile/first-time/5',[CandidateController::class,'viewProfileFormForFirstTimePg5'])->name('viewProfileFormForFirstTimePg5');
+    Route::get('/profile/first-time/6',[CandidateController::class,'viewProfileFormForFirstTimePg6'])->name('viewProfileFormForFirstTimePg6');
+    Route::get('/profile/first-time/7',[CandidateController::class,'viewProfileFormForFirstTimePg7'])->name('viewProfileFormForFirstTimePg7');
+
+    Route::post('/profile/first-time',[CandidateController::class,'storeProfileFormForFirstTimePg1'])->name('storeProfileFormForFirstTimePg1');
+    Route::post('/profile/first-time/2',[CandidateController::class,'storeProfileFormForFirstTimePg2'])->name('storeProfileFormForFirstTimePg2');
+    Route::post('/profile/first-time/2/delete',[CandidateController::class,'deleteProfileFormForFirstTimePg2'])->name('deleteProfileFormForFirstTimePg2');
+    Route::post('/profile/first-time/3',[CandidateController::class,'storeProfileFormForFirstTimePg3'])->name('storeProfileFormForFirstTimePg3');
+    Route::post('/profile/first-time/3/delete',[CandidateController::class,'deleteProfileFormForFirstTimePg3'])->name('deleteProfileFormForFirstTimePg3');
+    Route::post('/profile/first-time/4',[CandidateController::class,'storeProfileFormForFirstTimePg4'])->name('storeProfileFormForFirstTimePg4');
+    Route::post('/profile/first-time/4/delete',[CandidateController::class,'deleteProfileFormForFirstTimePg4'])->name('deleteProfileFormForFirstTimePg4');
+    Route::post('/profile/first-time/5',[CandidateController::class,'storeProfileFormForFirstTimePg5'])->name('storeProfileFormForFirstTimePg5');
+    Route::post('/profile/first-time/6',[CandidateController::class,'storeProfileFormForFirstTimePg6'])->name('storeProfileFormForFirstTimePg6');
+    Route::put('/profile/first-time/7',[CandidateController::class,'storeProfileFormForFirstTimePg7'])->name('storeProfileFormForFirstTimePg7');
+    Route::post('/profile/first-time/7/hobby',[CandidateController::class,'storeHobby'])->name('storeHobby');
+    Route::post('/profile/first-time/7/hobby/delete',[CandidateController::class,'deleteHobby'])->name('deleteHobby');
 
     Route::post('/dashboard',[IndexController::class,'indexWithSelection'])->name('index-job-selected');
     Route::post('/jobs/add',[JobController::class,'storeAddForm'])->name('add-job');

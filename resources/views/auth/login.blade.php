@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form action="{{route('login')}}" method="POST">
+    {{-- <form action="{{route('login')}}" method="POST">
         @csrf
         <div class="my-4">    
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="username">
@@ -39,9 +39,9 @@
           </button> 
         <button type="submit" class="hover:underline text-sm ml-2">Forget Password? </button>
         {{-- <a><button href="" class="hover:underline text-sm ml-2">First Time Login </button></a> --}}
-        <div class="mt-2 flex flex-row"><p class="text-gray-400 text-xs">v 1.0&nbsp;&copy;2024-Code owned by <a href="https://www.github.com/slipajepun96" class="underline">umar qayyum</a></p></div>
+        {{-- <div class="mt-2 flex flex-row"><p class="text-gray-400 text-xs">v 1.0&nbsp;&copy;2024-Code owned by <a href="https://www.github.com/slipajepun96" class="underline">umar qayyum</a></p></div> --}}
         
-    </form>
+    {{-- </form> --}}
 
     
 </div>

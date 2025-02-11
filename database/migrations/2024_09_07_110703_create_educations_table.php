@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('education', function (Blueprint $table) {
             $table->timestamps();
             $table->uuid('id')->primary();
-            $table->foreignUuid('candidate_id');
-            $table->foreignUuid('job_id');
+            // $table->foreignUuid('candidate_id');
+            // $table->foreignUuid('job_id');
             // $table->string('job_id');
             $table->string('edu_institute_name');
             $table->string('start_year');

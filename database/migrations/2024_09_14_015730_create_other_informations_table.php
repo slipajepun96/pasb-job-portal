@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('other_information', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->timestamps();
-            $table->foreignUuid('candidate_id');
-            $table->foreignUuid('job_id');
             $table->string('bm_status');
             $table->string('bi_status');
             $table->string('other_language_name')->nullable();

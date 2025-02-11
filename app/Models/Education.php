@@ -21,8 +21,6 @@ class Education extends Model
     }
 
     protected $fillable = [
-        'job_id',
-        'candidate_id',
         'edu_institute_name',
         'start_year',
         'end_year',

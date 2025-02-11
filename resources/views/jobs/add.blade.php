@@ -6,7 +6,7 @@
     <div class="">
         <h1 class="mb-2 text-2xl font-bold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-2xl">Tambah Jawatan Kosong</h1>
     </div>
-    <div class="max-w-screen-lg m-2 mx-auto">
+    <div class="m-2 mx-auto">
 
         <div class="">
             <form action="{{route('add-job')}}" method="POST">

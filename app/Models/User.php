@@ -6,18 +6,36 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
+// class User extends Model
 {
     use HasFactory, Notifiable;
+    // use HasFactory;
+    // protected $keyType = 'string'; // Set the key type to UUID
+    // public $incrementing = false; // Disable auto-incrementing
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    // public static function booted()
+    // {
+    //     static::creating(function($model)
+    //     {
+    //         $model->id = Str::uuid();
+    //     });
+    // }
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($user) {
+            $user->uuid = Str::uuid(); // Auto-generate UUID
+        });
+    }
+
     protected $fillable = [
         'name',
+        'uuid',
         'email',
         'password',
         'google_id',

@@ -20,7 +20,7 @@ class IndexController extends Controller
 {
     public function index(Request $request)
     {
-        $candidate_data=Candidate::where('form_submitted_date','!=','')->where('job_id','!=','')->get();
+        $candidate_data=Candidate::where('form_submitted_date','!=','')->get();
         $num_of_applicant;
         $jobs=Job::all();
 
@@ -28,7 +28,7 @@ class IndexController extends Controller
         foreach($jobs as $job)
         {
             $num_of_applicant = 0;
-            $candidate_data=Candidate::where('form_submitted_date','!=','')->where('job_id','=',$job->id)->get();
+            $candidate_data=Candidate::where('form_submitted_date','!=','')->get();
             $num_of_applicant = count($candidate_data);
 
             $data[$i][0] = $job->job_ads_title;

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('birthdate');
             $table->string('gender');
             $table->string('race');
-            $table->string('age');
+            $table->string('age')->nullable();
             $table->string('ic_num');
             $table->string('marital_status');
             $table->string('fixed_address');

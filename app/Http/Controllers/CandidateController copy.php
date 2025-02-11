@@ -21,27 +21,15 @@ use Illuminate\Support\Facades\Auth;
 class CandidateController extends Controller
 {
 
-    public function getUserUUID()
-    {
-        return $user_uuid = Auth::user()->uuid;
-    }
 
     public function viewProfileIndex()
     {
-        $user_uuid = $this->getUserUUID();
-        $candidate=Candidate::where('uuid','=',$user_uuid)->firstOrFail();
-        $relatives=Relative::where('user_uuid','=',$user_uuid)->orderBy('age', 'DESC')->get();
-        $educations=Education::where('user_uuid','=',$user_uuid)->orderBy('start_year', 'ASC')->get();
-        $career_histories=CareerHistory::where('user_uuid','=',$user_uuid)->orderBy('start_year', 'ASC')->get();
-        $current_career_history=CurrentCareerHistory::where('user_uuid','=',$user_uuid)->firstOrFail();
-        $hobbies=Hobby::where('user_uuid','=',$user_uuid)->get();
         $today=date("m/d/Y");
-        $data[0] = $candidate;
-        // $jobs=Job::where('end_date','>=',$today)->where('start_date','<=',$today)->get();
+        $jobs=Job::where('end_date','>=',$today)->where('start_date','<=',$today)->get();
         // $jobs=Job::all();
         // dd($jobs);
 
-        return view('profile_form.profile_form-index',['candidate' => $candidate,'relatives' => $relatives, 'educations' => $educations, 'career_histories' => $career_histories, 'current_career_history' => $current_career_history , 'hobbies' => $hobbies]);
+        return view('profile_form.profile_form-index',['jobs' => $jobs]);
     }
 
     public function viewProfileFormForFirstTimePg1()
@@ -56,28 +44,38 @@ class CandidateController extends Controller
         return view('profile_form.profile_form-1', compact('user'));
     }
 
-    public function storeProfileFormForFirstTimePg1(Request $request)
+    public function viewApplyFormPg1()
     {
+        $today=date("m/d/Y");
+        $jobs=Job::where('end_date','>=',$today)->where('start_date','<=',$today)->get();
+        // $jobs=Job::all();
+        // dd($jobs);
 
-        // dd($request);
+        return view('apply-form.apply-form',['jobs' => $jobs]);
+    }
+
+    public function storeApplyFormPg1(Request $request)
+    {
         $validator=Validator::make($request->all(),[
-            'uuid' => 'required',
+            'job_id' => 'required',
             'name' => 'required',
             'birthdate' => 'required',
             'gender' => 'required',
             'race' => 'required',
+            'age' => 'required',
             'ic_num' => 'required',
             'marital_status' => 'required',
-            'child_num' => '',
             'fixed_address' => 'required',
             'mail_address' => '',
             'phone_tel_num' => 'required',
             'home_tel_num' => '',
             'email' => 'required',
+            'expected_salary' => 'required',
+            'expected_report_for_duty_date' => 'required',
         ]);
 
         if ($validator->fails()) {
-            return redirect('/profile/first-time')
+            return redirect('/apply-form')
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -87,47 +85,49 @@ class CandidateController extends Controller
         // dd($validated[1]);
         
         $candidate = new Candidate();
-        $candidate->uuid = $request->uuid;
+        $candidate->job_id = $request->job_id;
         $candidate->name = $request->name;
         $candidate->birthdate = $request->birthdate;
         $candidate->gender = $request->gender;
         $candidate->race = $request->race;
+        $candidate->age = $request->age;
         $candidate->ic_num = $request->ic_num;
         $candidate->marital_status = $request->marital_status;
-        $candidate->child_num = $request->child_num;
         $candidate->fixed_address = $request->fixed_address;
         $candidate->mail_address = $request->mail_address;
         $candidate->phone_tel_num = $request->phone_tel_num;
         $candidate->home_tel_num = $request->home_tel_num;
         $candidate->email = $request->email;
-        // $candidate->expected_salary = $request->expected_salary;
-        // $candidate->expected_report_for_duty_date = $request->expected_report_for_duty_date;
+        $candidate->expected_salary = $request->expected_salary;
+        $candidate->expected_report_for_duty_date = $request->expected_report_for_duty_date;
 
         $candidate->save();
 
-        $user_uuid = $this->getUserUUID();
+        // dd($candidate->id);
+        return redirect()->route('apply-form-pg2', ['candidate_id' => $candidate->id]);
+        // return $this->viewApplyFormPg2($candidate->id);
 
-        return redirect()->route('viewProfileFormForFirstTimePg2');
+
     }
 
     //page-2--------------------------------------------------------------------------------------------------------
 
 
-    public function viewProfileFormForFirstTimePg2()
+    public function viewApplyFormPg2($candidate_id)
     {
-        $user_uuid = $this->getUserUUID();
-        $relatives=Relative::where('user_uuid','=',$user_uuid)->get();
-        // dd($relatives);
+        $relatives=Relative::where('candidate_id','=',$candidate_id)->get();
+        // dd($relative);
 
-        return view('profile_form.profile_form-2', ['user_uuid' => $user_uuid,'relatives' => $relatives]);
+        return view('apply-form.apply-form-2',['candidate_id' => $candidate_id,'relatives' => $relatives]);
     }
 
-    public function storeProfileFormForFirstTimePg2(Request $request)
+    public function storeApplyFormPg2(Request $request)
     {
         // dd($request);
 
         $validator=Validator::make($request->all(),[
-            // 'user_uuid' => 'required',
+            'job_id' => 'required',
+            'candidate_id' => 'required',
             'name' => 'required',
             'relationship' => 'required',
             'age' => 'required',
@@ -135,10 +135,8 @@ class CandidateController extends Controller
             'company_name' => '',
         ]);
 
-        $user_uuid = $this->getUserUUID();
-
         if ($validator->fails()) {
-            return redirect('/profile/first-time/2')
+            return redirect()->route('apply-form-pg2', ['candidate_id' => $request->candidate_id])
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -146,7 +144,8 @@ class CandidateController extends Controller
         $validated=$validator->validated();
 
         $relative = new Relative();
-        $relative->user_uuid = $user_uuid;
+        $relative->job_id = $request->job_id;
+        $relative->candidate_id = $request->candidate_id;
         $relative->name = $request->name;
         $relative->relationship = $request->relationship;
         $relative->age = $request->age;
@@ -155,38 +154,37 @@ class CandidateController extends Controller
 
         $relative->save();
 
-        return redirect()->route('viewProfileFormForFirstTimePg2');
+        return redirect()->route('apply-form-pg2', ['candidate_id' => $request->candidate_id]);
 
     }
 
-    public function deleteProfileFormForFirstTimePg2(Request $request)
+    public function deleteApplyFormPg2(Request $request)
     {
         DB::table('relatives')->where('id',$request->id)->delete();
         Session::flash('status','Successfully deleted');
-
-        $user_uuid = $this->getUserUUID();
-        return redirect()->route('viewProfileFormForFirstTimePg2');
+        return redirect()->route('apply-form-pg2', ['candidate_id' => $request->candidate_id]);
     }
 
     //page-3--------------------------------------------------------------------------------------------------------
 
-    public function viewProfileFormForFirstTimePg3()
+    public function viewApplyFormPg3($candidate_id)
     {
-        $user_uuid = $this->getUserUUID();
-        $educations=DB::table('education')->where('user_uuid','=',$user_uuid)->orderBy('start_year', 'asc')->get();
+        $educations=DB::table('education')->where('candidate_id','=',$candidate_id)->get();
         // $educations=DB::table('education')->get();
         // dd($request);
         // return redirect()->route('apply-form-pg3', ['candidate_id' => $candidate_id]);
-        return view('profile_form.profile_form-3',['educations' => $educations]);
+        return view('apply-form.apply-form-3',['candidate_id' => $candidate_id,'educations' => $educations]);
+
+        // return view('apply-form.apply-form-3',['candidate_id' => $request->candidate_id,'educations' => $educations]);
     }
 
-    public function storeProfileFormForFirstTimePg3(Request $request)
+    public function storeApplyFormPg3(Request $request)
     {
         // dd($request);
-        $user_uuid = $this->getUserUUID();
+
         $validator=Validator::make($request->all(),[
-            // 'job_id' => 'required',
-            // 'candidate_id' => 'required',
+            'job_id' => 'required',
+            'candidate_id' => 'required',
             'edu_institute_name' => 'required',
             'start_year' => 'required',
             'end_year' => 'required',
@@ -195,7 +193,9 @@ class CandidateController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/profile/first-time/3')
+
+            dd($validator);
+            return redirect()->route('apply-form-pg3', ['candidate_id' => $request->candidate_id])
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -203,7 +203,8 @@ class CandidateController extends Controller
         $validated=$validator->validated();
 
         $education = new Education();
-        $education->user_uuid = $user_uuid;
+        $education->job_id = $request->job_id;
+        $education->candidate_id = $request->candidate_id;
         $education->edu_institute_name = $request->edu_institute_name;
         $education->start_year = $request->start_year;
         $education->end_year = $request->end_year;
@@ -212,32 +213,36 @@ class CandidateController extends Controller
 
         $education->save();
 
-        return redirect()->route('viewProfileFormForFirstTimePg3');
+        return redirect()->route('apply-form-pg3', ['candidate_id' => $request->candidate_id]);
     }
 
-    public function deleteProfileFormForFirstTimePg3(Request $request)
+    public function deleteApplyFormPg3(Request $request)
     {
         DB::table('education')->where('id',$request->id)->delete();
-        Session::flash('status','Berjaya dibuang');
-        return redirect()->route('viewProfileFormForFirstTimePg3');
+        Session::flash('status','Successfully deleted');
+        return redirect()->route('apply-form-pg3', ['candidate_id' => $request->candidate_id]);
     }
 
     //page-4--------------------------------------------------------------------------------------------------------
 
-    public function viewProfileFormForFirstTimePg4()
+    public function viewApplyFormPg4($candidate_id)
     {
-        $user_uuid = $this->getUserUUID();
-        $career_histories=DB::table('career_histories')->where('user_uuid','=',$user_uuid)->orderBy('start_year', 'asc')->get();
+        $career_histories=DB::table('career_histories')->where('candidate_id','=',$candidate_id)->get();
         // $educations=DB::table('education')->get();
         // dd($request);
-        return view('profile_form.profile_form-4',['career_histories' => $career_histories]);
+        return view('apply-form.apply-form-4',['candidate_id' => $candidate_id,'career_histories' => $career_histories]);
+        // return view('apply-form.apply-form-4',['candidate_id' => $candidate_id]);
+
+        // return view('apply-form.apply-form-3',['candidate_id' => $request->candidate_id,'educations' => $educations]);
     }    
 
-    public function storeProfileFormForFirstTimePg4(Request $request)
+    public function storeApplyFormPg4(Request $request)
     {
         // dd($request);
-        $user_uuid = $this->getUserUUID();
+
         $validator=Validator::make($request->all(),[
+            'job_id' => 'required',
+            'candidate_id' => 'required',
             'employer_name' => 'required',
             'designation' => 'required',
             'start_year' => 'required',
@@ -247,7 +252,9 @@ class CandidateController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/profile/first-time/4')
+
+            dd($validator);
+            return redirect()->route('apply-form-pg4', ['candidate_id' => $request->candidate_id])
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -257,7 +264,8 @@ class CandidateController extends Controller
 
 
         $career_history = new CareerHistory();
-        $career_history->user_uuid = $user_uuid;
+        $career_history->job_id = $request->job_id;
+        $career_history->candidate_id = $request->candidate_id;
         $career_history->employer_name = $request->employer_name;
         $career_history->designation = $request->designation;
         $career_history->start_year = $request->start_year;
@@ -267,29 +275,35 @@ class CandidateController extends Controller
 
         $career_history->save();
 
-        return redirect()->route('viewProfileFormForFirstTimePg4');
+        return redirect()->route('apply-form-pg4', ['candidate_id' => $request->candidate_id]);
 
     }
 
-    public function deleteProfileFormForFirstTimePg4(Request $request)
+    public function deleteApplyFormPg4(Request $request)
     {
         DB::table('career_histories')->where('id',$request->id)->delete();
         Session::flash('status','Successfully deleted');
-        return redirect()->route('viewProfileFormForFirstTimePg4');
+        return redirect()->route('apply-form-pg4', ['candidate_id' => $request->candidate_id]);
     }
 
     //page-5--------------------------------------------------------------------------------------------------------
 
-    public function viewProfileFormForFirstTimePg5()
+    public function viewApplyFormPg5($candidate_id)
     {
-        return view('profile_form.profile_form-5');
+
+        // return view('apply-form.apply-form-4',['candidate_id' => $candidate_id,'career_histories' => $career_histories]);
+        return view('apply-form.apply-form-5',['candidate_id' => $candidate_id]);
+
+        // return view('apply-form.apply-form-3',['candidate_id' => $request->candidate_id,'educations' => $educations]);
     }   
 
-    public function storeProfileFormForFirstTimePg5(Request $request)
+    public function storeApplyFormPg5(Request $request)
     {
         // dd($request);
-        $user_uuid = $this->getUserUUID();
+
         $validator=Validator::make($request->all(),[
+            'job_id' => 'required',
+            'candidate_id' => 'required',
             'current_salary' => 'required',
             'current_allowance' => '',
             'latest_bonus_sum' => '',
@@ -300,7 +314,9 @@ class CandidateController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/profile/first-time/5')
+
+            dd($validator);
+            return redirect()->route('apply-form-pg5', ['candidate_id' => $request->candidate_id])
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -310,7 +326,8 @@ class CandidateController extends Controller
 
 
         $current_career_history = new CurrentCareerHistory();
-        $current_career_history->user_uuid = $user_uuid;
+        $current_career_history->job_id = $request->job_id;
+        $current_career_history->candidate_id = $request->candidate_id;
         $current_career_history->current_salary = $request->current_salary;
         $current_career_history->current_allowance = $request->current_allowance;
         $current_career_history->latest_bonus_sum = $request->latest_bonus_sum;
@@ -321,21 +338,28 @@ class CandidateController extends Controller
 
         $current_career_history->save();
 
-        return redirect()->route('viewProfileFormForFirstTimePg6');
+        return redirect()->route('apply-form-pg6', ['candidate_id' => $request->candidate_id]);
 
     }
 
     //page-6--------------------------------------------------------------------------------------------------------
 
-    public function viewProfileFormForFirstTimePg6()
+    public function viewApplyFormPg6($candidate_id)
     {
-        return view('profile_form.profile_form-6');
+
+        // return view('apply-form.apply-form-4',['candidate_id' => $candidate_id,'career_histories' => $career_histories]);
+        return view('apply-form.apply-form-6',['candidate_id' => $candidate_id]);
+
+        // return view('apply-form.apply-form-3',['candidate_id' => $request->candidate_id,'educations' => $educations]);
     }   
 
-    public function storeProfileFormForFirstTimePg6(Request $request)
+    public function storeApplyFormPg6(Request $request)
     {
-        $user_uuid = $this->getUserUUID();
+        // dd($request);
+
         $validator=Validator::make($request->all(),[
+            'job_id' => 'required',
+            'candidate_id' => 'required',
             'bm_status' => 'required',
             'bi_status' => 'required',
             'other_language_name' => '',
@@ -359,7 +383,9 @@ class CandidateController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/profile/first-time/6')
+
+            dd($validator);
+            return redirect()->route('apply-form-pg6', ['candidate_id' => $request->candidate_id])
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -369,7 +395,8 @@ class CandidateController extends Controller
 
 
         $other_information = new OtherInformation();
-        $other_information->user_uuid = $user_uuid;
+        $other_information->job_id = $request->job_id;
+        $other_information->candidate_id = $request->candidate_id;
         $other_information->bm_status = $request->bm_status;
         $other_information->bi_status = $request->bi_status;
         $other_information->other_language_name = $request->other_language_name;
@@ -394,23 +421,26 @@ class CandidateController extends Controller
 
         $other_information->save();
 
-        return redirect()->route('viewProfileFormForFirstTimePg7');
+        return redirect()->route('apply-form-pg7', ['candidate_id' => $request->candidate_id]);
 
     }
 
-    //page-7--------------------------------------------------------------------------------------------------------
+    //page-6--------------------------------------------------------------------------------------------------------
 
-    public function viewProfileFormForFirstTimePg7()
+    public function viewApplyFormPg7($candidate_id)
     {
-        $user_uuid = $this->getUserUUID();
-        $hobbies=DB::table('hobbies')->where('user_uuid','=',$user_uuid)->get();
-        return view('profile_form.profile_form-7',['hobbies' => $hobbies]);
+        $hobbies=DB::table('hobbies')->where('candidate_id','=',$candidate_id)->get();
+        return view('apply-form.apply-form-7',['candidate_id' => $candidate_id,'hobbies' => $hobbies]);
+        // return view('apply-form.apply-form-7',['candidate_id' => $candidate_id]);
+
+        // return view('apply-form.apply-form-3',['candidate_id' => $request->candidate_id,'educations' => $educations]);
     }     
     
     public function storeHobby(Request $request)
     {
-        $user_uuid = $this->getUserUUID();
         $validator=Validator::make($request->all(),[
+            'job_id' => 'required',
+            'candidate_id' => 'required',
             'hobby' => 'required',
 
         ]);
@@ -418,38 +448,46 @@ class CandidateController extends Controller
         if ($validator->fails()) {
 
             dd($validator);
-            return redirect()->route('viewProfileFormForFirstTimePg7')
+            return redirect()->route('apply-form-pg7', ['candidate_id' => $request->candidate_id])
                         ->withErrors($validator)
                         ->withInput();
         }
 
         $validated=$validator->validated();
 
+
+
         $hobby = new Hobby();
-        $hobby->user_uuid = $user_uuid;
+        $hobby->job_id = $request->job_id;
+        $hobby->candidate_id = $request->candidate_id;
         $hobby->hobby = $request->hobby;
 
         $hobby->save();
 
-        return redirect()->route('viewProfileFormForFirstTimePg7');
+        return redirect()->route('apply-form-pg7', ['candidate_id' => $request->candidate_id]);
+
     }  
 
     public function deleteHobby(Request $request)
     {
         DB::table('hobbies')->where('id',$request->id)->delete();
         Session::flash('status','Successfully deleted');
-        return redirect()->route('viewProfileFormForFirstTimePg7');
+        return redirect()->route('apply-form-pg7', ['candidate_id' => $request->candidate_id]);
     }
 
-    public function storeProfileFormForFirstTimePg7(Request $request)
+    public function storeApplyFormPg7(Request $request)
     {
-        $user_uuid = $this->getUserUUID();
 
-        $other_information = OtherInformation::where('user_uuid','=',$user_uuid)->first();
-        $candidate = Candidate::where('uuid', $user_uuid)->first();
-        // dd($request);
+        $candidate = Candidate::find($request->candidate_id);
+        $other_information = OtherInformation::where('candidate_id','=',$request->candidate_id)->first();
+        // dd($other_information);
+
+        
+
 
         $validator=Validator::make($request->all(),[
+            'job_id' => 'required',
+            'candidate_id' => 'required',
             'emgcy_contact_name' => 'required',
             'emgcy_contact_relationship' => 'required',
             'emgcy_contact_phone_num' => 'required',
@@ -467,55 +505,40 @@ class CandidateController extends Controller
         if ($validator->fails()) {
 
             dd($validator);
-            return redirect()->route('viewProfileFormForFirstTimePg7', ['candidate_id' => $request->candidate_id])
+            return redirect()->route('apply-form-pg7', ['candidate_id' => $request->candidate_id])
                         ->withErrors($validator)
                         ->withInput();
         }
 
-        try
-        {
-            $validated=$validator->validated();
+        $validated=$validator->validated();
 
-            // Ensure file is uploaded before storing
-            if ($request->hasFile('attachment')) {
-                $file = $request->file('attachment')->store("/attachment/" . $user_uuid, 'public');
-            } else {
-                $file = null; // Set to null if no file is uploaded
-            }
+        $file = $request->file('attachment')->store("/attachment/".$request->candidate_id,'public');
+        // $path = $file->store('uploads', 'public');
+        // dd($file);
 
-            $candidate->emgcy_contact_name = $request->emgcy_contact_name;
-            $candidate->emgcy_contact_relationship = $request->emgcy_contact_relationship;
-            $candidate->emgcy_contact_phone_num = $request->emgcy_contact_phone_num;
-            $candidate->attachment_location = $file;
-            $candidate->form_submitted_date = date("m-d-Y"); //mark that first-time form is successfully completed
-            $candidate->save();
+  
 
-            // Ensure OtherInformation exists before saving
-            if (!$other_information) 
-            {
-                $other_information = new OtherInformation();
-                $other_information->user_uuid = $user_uuid;
-            }
+        // $other_information = new OtherInformation();
+        $candidate->emgcy_contact_name = $request->emgcy_contact_name;
+        $candidate->emgcy_contact_relationship = $request->emgcy_contact_relationship;
+        $candidate->emgcy_contact_phone_num = $request->emgcy_contact_phone_num;
+        $candidate->attachment_location = $file;
+        $candidate->form_submitted_date = date("m/d/Y");
+        $candidate->save();
 
-            $other_information->ref1_name = $request->ref1_name;
-            $other_information->ref1_phone_num = $request->ref1_phone_num;
-            $other_information->ref1_company = $request->ref1_company;
-            $other_information->ref1_designation = $request->ref1_designation;
-            $other_information->ref2_name = $request->ref2_name;
-            $other_information->ref2_phone_num = $request->ref2_phone_num;
-            $other_information->ref2_company = $request->ref2_company;
-            $other_information->ref2_designation = $request->ref2_designation;
-            $other_information->save();
+        $other_information->ref1_name = $request->ref1_name;
+        $other_information->ref1_phone_num = $request->ref1_phone_num;
+        $other_information->ref1_company = $request->ref1_company;
+        $other_information->ref1_designation = $request->ref1_designation;
+        $other_information->ref2_name = $request->ref2_name;
+        $other_information->ref2_phone_num = $request->ref2_phone_num;
+        $other_information->ref2_company = $request->ref2_company;
+        $other_information->ref2_designation = $request->ref2_designation;
+        $other_information->save();
 
-            Session::flash('status','Permohonan anda telah berjaya dihantar. Kami akan menghubungi anda jika anda disenarai pendek untuk sesi temuduga. Terima Kasih.');
-            return redirect('/');
-        }
-        catch (\Exception $e)
-        {
-            // Log the error for debugging
-            \Log::error('Error saving data: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Terdapat masalah semasa menyimpan maklumat anda. Sila cuba lagi.');
+        Session::flash('status','Permohonan anda telah berjaya dihantar. Kami akan menghubungi anda jika anda disenarai pendek untuk sesi temuduga. Terima Kasih.');
 
-        }
+        return redirect('/');
+
     }
 }

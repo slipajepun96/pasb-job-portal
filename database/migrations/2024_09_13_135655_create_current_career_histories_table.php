@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('current_career_histories', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->timestamps();
-            $table->foreignUuid('candidate_id');
-            $table->foreignUuid('job_id');
             $table->string('current_salary');
             $table->string('current_allowance');
             $table->string('latest_bonus_sum');

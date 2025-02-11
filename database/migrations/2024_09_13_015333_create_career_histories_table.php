@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('career_histories', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->timestamps();
-            $table->foreignUuid('candidate_id');
-            $table->foreignUuid('job_id');
             $table->string('employer_name');
             $table->string('designation');
             $table->string('start_year');

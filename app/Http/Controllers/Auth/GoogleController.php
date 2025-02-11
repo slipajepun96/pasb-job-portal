@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class GoogleController extends Controller
 {
@@ -61,32 +63,67 @@ class GoogleController extends Controller
         try {
             // Use the token to retrieve the user's information
             $googleUser = Socialite::driver('google-one-tap')->userFromToken($token);
+            
 
             //-----------------to rework as it need to add password column
-            $user = User::firstOrCreate(
-                ['email' => $googleUser->getEmail()],
-                [
+            // $user = User::firstOrCreate(
+            //     ['email' => $googleUser->getEmail()],
+            //     [
+            //         'name' => $googleUser->getName(),
+            //         'google_id' => $googleUser->getId(),
+            //         // 'access_level'=> 'applicant',
+            //         // 'password' => Hash::make($password),
+            //         // 'avatar' => $googleUser->getAvatar(),
+            //     ]
+            // );
+
+            //---------------------------------------------
+
+            $user = User::where('google_id', $googleUser->getId())->where('email', $googleUser->getEmail())->first();
+
+            if ($user) {
+                Auth::login($user);
+                // return redirect()->intended('/');
+                return response()->json([
+                    'success' => true,
+                    'redirect_url' => '/', // URL to redirect to after login
+                ], 200);
+            } else {
+
+                $randomPassword = Str::random(15);
+                $hashedPassword = Hash::make($randomPassword); // Hash the password using <bcrypt></bcrypt>
+
+                $newUser = User::create([
                     'name' => $googleUser->getName(),
-                    'google_id' => $googleUser->getId(),
-                    // 'access_level'=> 'applicant',
-                    // 'password' => Hash::make($password),
-                    // 'avatar' => $googleUser->getAvatar(),
-                ]
-            );
+                    'email' => $googleUser->getEmail(),
+                    'google_id'=> $googleUser->getId(),
+                    'access_level'=> 'user',
+                    'password' => $hashedPassword,
+                    'uuid' => Str::uuid(),
+                ]);
+
+                Auth::login($newUser);
+
+                return response()->json([
+                    'success' => true,
+                    'redirect_url' => '/profile/first-time', // URL to redirect to after login
+                ], 200);
+
+            }
 
             // \Log::info('Received user:', ['user' => $user]);
             // Log in the user
             // auth()->login($user);
-            Auth::login($user);
+            // Auth::login($user);
 
             // Return a response or redirect
-            // return  redirect('/dashboard'); 
+            // return  redirect('/'); 
             // response()->json(['message' => 'Logged in successfully', 'user' => $user]);
             // Return success response with the redirect URL
-            return response()->json([
-                'success' => true,
-                'redirect_url' => '/', // URL to redirect to after login
-            ], 200);
+            // return response()->json([
+            //     'success' => true,
+            //     'redirect_url' => '/', // URL to redirect to after login
+            // ], 200);
 
         } catch (\Exception $e) {
             // Handle errors, e.g., invalid token

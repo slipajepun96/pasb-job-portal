@@ -15,8 +15,6 @@ return new class extends Migration
             // $table->id();
             $table->timestamps();
             $table->uuid('id')->primary();
-            $table->foreignUuid('candidate_id');
-            $table->foreignUuid('job_id');
             // $table->string('job_id');
             $table->string('name');
             $table->string('relationship');
